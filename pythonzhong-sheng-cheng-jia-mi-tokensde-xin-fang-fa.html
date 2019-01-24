@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>Python中生成加密Tokens的新方法</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/pythonzhong-sheng-cheng-jia-mi-tokensde-xin-fang-fa.html">
+<meta name="twitter:title" content="疯人院主任 ~ Python中生成加密Tokens的新方法">
+<meta name="twitter:description" content="文本翻译至https://blog.miguelgrinberg.com/post/the-new-way-to-generate-secure-tokens-in-python，大部分按自己理解翻译，有不对地方莫怪！ 当我们构建Web应用时，我们经常需要生成密码，Tokens或者API keys给到客户端来验证身份。存有五花八门的方式来生成这些，大部分都可以生成足够长，随机的字符串序列。在Python中实现遇到的问题时，生成随机字符串方式有很多，没能清晰确认哪种方式是最好最安全的。 你可能会认为再添加一个生成随机字符串方式只会让你更加疑惑，不像其他选项，Python 3.6中新增的secrets模块就是专门用来解决该问题，站在我的角度来说是非常开心它添加到了Python标准库中。在本简单文章中，我将简单描述该新模块。 生成Tokens secrets模块作为Ｐython 3.6新增标准库。你可以在应用或者交互式命令行中如下导入该模块： &gt;&gt;&gt; import secrets 该模块核心提供了三个函数使用系统最佳生成随机序列来生成随机tokens。第一个生成二进制序列函数： &gt;&gt;&gt; secrets.token_bytes() b&#39;D\x1f\xef\xa3\xcb\x1do]\xb7T\xc6 ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ Python中生成加密Tokens的新方法" />
+<meta property="og:description" content="文本翻译至https://blog.miguelgrinberg.com/post/the-new-way-to-generate-secure-tokens-in-python，大部分按自己理解翻译，有不对地方莫怪！ 当我们构建Web应用时，我们经常需要生成密码，Tokens或者API keys给到客户端来验证身份。存有五花八门的方式来生成这些，大部分都可以生成足够长，随机的字符串序列。在Python中实现遇到的问题时，生成随机字符串方式有很多，没能清晰确认哪种方式是最好最安全的。 你可能会认为再添加一个生成随机字符串方式只会让你更加疑惑，不像其他选项，Python 3.6中新增的secrets模块就是专门用来解决该问题，站在我的角度来说是非常开心它添加到了Python标准库中。在本简单文章中，我将简单描述该新模块。 生成Tokens secrets模块作为Ｐython 3.6新增标准库。你可以在应用或者交互式命令行中如下导入该模块： &gt;&gt;&gt; import secrets 该模块核心提供了三个函数使用系统最佳生成随机序列来生成随机tokens。第一个生成二进制序列函数： &gt;&gt;&gt; secrets.token_bytes() b&#39;D\x1f\xef\xa3\xcb\x1do]\xb7T\xc6 ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/pythonzhong-sheng-cheng-jia-mi-tokensde-xin-fang-fa.html" rel="bookmark" title="Permalink to Python中生成加密Tokens的新方法">Python中生成加密Tokens的新方法</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>二 06 三月 2018<br />
+    <b>In: </b><a href="/category/python.html" rel="bookmark" title="Permalink to Python">Python</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>文本翻译至<a href="https://blog.miguelgrinberg.com/post/the-new-way-to-generate-secure-tokens-in-python">https://blog.miguelgrinberg.com/post/the-new-way-to-generate-secure-tokens-in-python</a>，大部分按自己理解翻译，有不对地方莫怪！</p>
+<p>当我们构建Web应用时，我们经常需要生成密码，Tokens或者API keys给到客户端来验证身份。存有五花八门的方式来生成这些，大部分都可以生成足够长，随机的字符串序列。在Python中实现遇到的问题时，生成随机字符串方式有很多，没能清晰确认哪种方式是最好最安全的。</p>
+<p>你可能会认为再添加一个生成随机字符串方式只会让你更加疑惑，不像其他选项，Python 3.6中新增的<code>secrets</code>模块就是专门用来解决该问题，站在我的角度来说是非常开心它添加到了Python标准库中。在本简单文章中，我将简单描述该新模块。</p>
+<h2>生成Tokens</h2>
+<p><code>secrets</code>模块作为Ｐython 3.6新增标准库。你可以在应用或者交互式命令行中如下导入该模块：</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">secrets</span>
+</pre></div>
+
+
+<p>该模块核心提供了三个函数使用系统最佳生成随机序列来生成随机tokens。第一个生成二进制序列函数：</p>
+<div class="highlight"><pre>&gt;&gt;&gt; secrets.token_bytes()
+b&#39;D\x1f\xef\xa3\xcb\x1do]\xb7T\xc6\xb0m\xdd\xa3\xcd\x15\xc5\xbbw`\xa5\xc3\x12Y\xf7\x98\xdf\xf6\x89\xb3r&#39;
+&gt;&gt;&gt; secrets.token_bytes(20)
+b&#39;o\xe0K\xf0\xf1E\xcb\xab\xc5\x910\nn\xb4\x0fm:7t\x14&#39;
+</pre></div>
+
+
+<p>通过不带参数的方式调用<code>token_bytes</code>会生成一个默认长度足够安全的token。你可以传递参数来获得确切长度，如上第二个例子。</p>
+<p><code>token_hex()</code>函数工作方式相同，不过它返回的字节字符串而非原始16进制符号字符串：</p>
+<div class="highlight"><pre>&gt;&gt;&gt; secrets.token_hex()
+&#39;d061120ae4c5b6e20f26c6f8e169f4abd634c572fe15807c0242ce3e6214cfc7&#39;
+&gt;&gt;&gt; secrets.token_hex(20)
+&#39;f6ff2233a7c9f3951a2004f6ed530e732ba0081e&#39;
+</pre></div>
+
+
+<p>该函数，每个字节序列将会以两个16进制数表示，所以在第二个我传递了20字符串长度的函数调用中，结果返回了40字符串长度字符串。</p>
+<p>第三个函数是<code>token_urlsafe()</code>，它返回的随机字符串会使用base64进行格式化。</p>
+<div class="highlight"><pre>&gt;&gt;&gt; secrets.token_urlsafe()
+&#39;8CjCdJDskYLhalkQviEZVa2p-W_B8WNRDG6H7sQ6HOs&#39;
+&gt;&gt;&gt; secrets.token_urlsafe(20)
+&#39;34dFX5F5iM7drvlYTTg5ZQUDp5s&#39;
+</pre></div>
+
+
+<p>base64加密会比使用16进制更加高效。在上面的例子中我们可以看到，我们请求20字符串长度，base64加密字符串会获得27个字符串长度结果。</p>
+<p>我们怎么样知道什么时候使用这些函数呢？大部分情况下，<code>token_urlsafe()</code>函数也许是最好的选择。如果你更倾向于使用16进制符号生成随机字符串（仅提供0-9和a-f区间字符），那么使用<code>token_hex()</code>，如果你倾向于生成原始二进制字符串，不进行任何编码的话，使用<code>token_bytes()</code>。</p>
+<p>有很多场景下通过它来生成tokens获益，以下是一些例子：</p>
+<ul>
+<li>客户端通过用户名和密码验证后提供的API keys</li>
+<li>通过邮箱发送给用户的密码重置Tokens</li>
+<li>新用户初始化密码（你可能想让用户首次登陆时更改它们的密码）</li>
+<li>后台任务或者其他异步操作的IDs</li>
+<li>其他服务例如数据库，消息队列等的密码</li>
+<li>动态生成的唯一URLs</li>
+</ul>
+<h2>生成随机数值</h2>
+<p>上面我所描述相关生成token函数相当有用，<code>secrets</code>模块还提供了一些函数用来处理随机数值</p>
+<p><code>choice()</code>函数用来将传递给的列表随机选择元素：</p>
+<div class="highlight"><pre>&gt;&gt;&gt; secrets.choice([&#39;apple&#39;, &#39;banana&#39;, &#39;pear&#39;])
+&#39;banana&#39;
+&gt;&gt;&gt; secrets.choice([&#39;apple&#39;, &#39;banana&#39;, &#39;pear&#39;])
+&#39;pear&#39;
+&gt;&gt;&gt; secrets.choice([&#39;apple&#39;, &#39;banana&#39;, &#39;pear&#39;])
+&#39;apple&#39;
+</pre></div>
+
+
+<p>该函数很方便与列表推导组合生成特定字符组成的随机字符串。例如，你想从<code>abcd</code>字符中生成20个随机字符的字符串：</p>
+<div class="highlight"><pre>&gt;&gt;&gt; &#39;&#39;.join([secrets.choice(&#39;abcd&#39;) for i in range(20)])
+&#39;addbaabbdbbbdcaccdcc&#39;
+</pre></div>
+
+
+<p><code>randombelow()</code>函数生成基于0到提供参数数值之间的随机整数（不包含该参数值）：</p>
+<div class="highlight"><pre>&gt;&gt;&gt; secrets.randbelow(10)
+3
+&gt;&gt;&gt; secrets.randbelow(10)
+0
+&gt;&gt;&gt; secrets.randbelow(10)
+6
+</pre></div>
+
+
+<p>最后，<code>randbits()</code>函数返回给定bit数位随机生成的整数：</p>
+<div class="highlight"><pre>&gt;&gt;&gt; secrets.randbits(8)
+100
+&gt;&gt;&gt; secrets.randbits(24)
+2141995
+&gt;&gt;&gt; secrets.randbits(173)
+8187008682859039821746570369817444827049482626323551
+</pre></div>
+
+
+<h2>结论</h2>
+<p>希望本文对你有些帮助。我发现token生成函数，尤其是<code>token_urlsafe()</code>，使用方便，并且还有很多场景等待使用去发觉。你是否使用本文描述的这些函数用于特定目的而我没有列出来的，请通过评论留言我！</p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/pythonzhong-sheng-cheng-jia-mi-tokensde-xin-fang-fa.html&text=Python中生成加密Tokens的新方法&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/pythonzhong-sheng-cheng-jia-mi-tokensde-xin-fang-fa.html&t=Python中生成加密Tokens的新方法"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/pythonzhong-sheng-cheng-jia-mi-tokensde-xin-fang-fa.html&title=Python中生成加密Tokens的新方法" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

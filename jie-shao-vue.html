@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>介绍Vue</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/jie-shao-vue.html">
+<meta name="twitter:title" content="疯人院主任 ~ 介绍Vue">
+<meta name="twitter:description" content="本系列我们开始学习Vue 2，本章将会使用简单的方式来快速在SaaS平台辅助下快速开始。 我们也可以聊聊为什么Vue变得如此流行，为什么我们要使用它。 然后，我们开始实现Vue基础:mustache templates，directives，modifiers，methods和computed properties。 接下来我们就会进行实际例子编写，了解Vue到底是啥。 本章涵盖以下主题： 什么是Vue? Vue解决什么样的问题 为什么使用Vue 什么是Vue Vue是一个简单容易使用的JS框架，诞生于2013年。它借鉴了很多来自Angular和React优良设计。 对比其他流行前端框架来说，Vue的有点就是简单。 让我们看看如何开始。 最简单的方式使用Vue2 近几年诞生了大批量的Web开发工具，我打开http://codepen.io/ 点击导航里的下拉菜单，点击Create -&gt; Pen，将会打开默认的编辑器。 接下来在屏幕的右上角点击设置按钮，弹出层选择JavaScript 输入框里敲入vue，通过智能查询选择Vue 可以了，现在我们就可以在Codepen Project使用Vue2了 有一件事需要知道的是，Vue使我们的HTML更加动态了。它通过使用mustache语法来实现的，该语法相当容易理解。我们只需要简单的插入到我们的HTML元素中，例如，我们可以如下插入到h1 ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ 介绍Vue" />
+<meta property="og:description" content="本系列我们开始学习Vue 2，本章将会使用简单的方式来快速在SaaS平台辅助下快速开始。 我们也可以聊聊为什么Vue变得如此流行，为什么我们要使用它。 然后，我们开始实现Vue基础:mustache templates，directives，modifiers，methods和computed properties。 接下来我们就会进行实际例子编写，了解Vue到底是啥。 本章涵盖以下主题： 什么是Vue? Vue解决什么样的问题 为什么使用Vue 什么是Vue Vue是一个简单容易使用的JS框架，诞生于2013年。它借鉴了很多来自Angular和React优良设计。 对比其他流行前端框架来说，Vue的有点就是简单。 让我们看看如何开始。 最简单的方式使用Vue2 近几年诞生了大批量的Web开发工具，我打开http://codepen.io/ 点击导航里的下拉菜单，点击Create -&gt; Pen，将会打开默认的编辑器。 接下来在屏幕的右上角点击设置按钮，弹出层选择JavaScript 输入框里敲入vue，通过智能查询选择Vue 可以了，现在我们就可以在Codepen Project使用Vue2了 有一件事需要知道的是，Vue使我们的HTML更加动态了。它通过使用mustache语法来实现的，该语法相当容易理解。我们只需要简单的插入到我们的HTML元素中，例如，我们可以如下插入到h1 ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/jie-shao-vue.html" rel="bookmark" title="Permalink to 介绍Vue">介绍Vue</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>五 14 十二月 2018<br />
+    <b>In: </b><a href="/category/vue.html" rel="bookmark" title="Permalink to Vue">Vue</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>本系列我们开始学习Vue 2，本章将会使用简单的方式来快速在SaaS平台辅助下快速开始。</p>
+<p>我们也可以聊聊为什么Vue变得如此流行，为什么我们要使用它。</p>
+<p>然后，我们开始实现Vue基础:mustache templates，directives，modifiers，methods和computed properties。</p>
+<p>接下来我们就会进行实际例子编写，了解Vue到底是啥。</p>
+<p>本章涵盖以下主题：</p>
+<ul>
+<li>什么是Vue?</li>
+<li>Vue解决什么样的问题</li>
+<li>为什么使用Vue</li>
+</ul>
+<h2>什么是Vue</h2>
+<p>Vue是一个简单容易使用的JS框架，诞生于2013年。它借鉴了很多来自Angular和React优良设计。</p>
+<p>对比其他流行前端框架来说，Vue的有点就是简单。</p>
+<p>让我们看看如何开始。</p>
+<h3>最简单的方式使用Vue2</h3>
+<p>近几年诞生了大批量的Web开发工具，我打开<a href="http://codepen.io/">http://codepen.io/</a></p>
+<p>点击导航里的下拉菜单，点击Create -&gt; Pen，将会打开默认的编辑器。</p>
+<p>接下来在屏幕的右上角点击设置按钮，弹出层选择JavaScript</p>
+<p>输入框里敲入vue，通过智能查询选择Vue</p>
+<p>可以了，现在我们就可以在Codepen Project使用Vue2了</p>
+<p>有一件事需要知道的是，Vue使我们的HTML更加动态了。它通过使用mustache语法来实现的，该语法相当容易理解。我们只需要简单的插入到我们的HTML元素中，例如，我们可以如下插入到h1 tag里：</p>
+<div class="highlight"><pre><span class="nt">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">heading1</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
+</pre></div>
+
+
+<p>现在我们来详细了解其工作过程</p>
+<h3>Mustache 模块示例</h3>
+<p>我们开始来编写我们第一个pen</p>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;entryPoint&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h1&gt;</span>Just an h1 heading here<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>Just an h2 heading here<span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Vue JS is fun<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+
+<p>HTML渲染后输出结果：</p>
+<p>Just an h1 heading here
+Just an h2 heading here
+Vue JS is fun</p>
+<p>接下来我们将Vue代码加入到我们JS面板里头：</p>
+<div class="highlight"><pre>new Vue({
+  el: &#39;#entryPoint&#39;,
+  data: {
+     heading1: &#39;Just an h1 heading here&#39;,
+     heading2: &#39;heading 2 here&#39;,
+     paragraph1: &#39;Vue JS&#39;
+  }
+})
+</pre></div>
+
+
+<p>最终，让我们更新我们的HTML代码赋予魔法：</p>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;entryPoint&quot;</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;h1&gt;</span><span class="cp">{{</span> <span class="nv">heading1</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;h2&gt;</span>Just an <span class="cp">{{</span> <span class="nv">heading2</span> <span class="cp">}}</span><span class="nt">&lt;/h2&gt;</span>
+  <span class="nt">&lt;p&gt;</span><span class="cp">{{</span><span class="nv">paragraph1</span><span class="cp">}}</span> is fun<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+
+<p>上面的代码示例，我们学习了如何通过mustache模板来动态加入数据到我们的HTML中。</p>
+<p>CodePen会自动更新预览面板。</p>
+<p>现在我们就可以通过更改我们的任意键值：</p>
+<div class="highlight"><pre>new Vue({
+  el: &#39;#entryPoint&#39;,
+  data: {
+     heading1: &#39;This is an h1&#39;,
+     heading2: &#39;h2 heading&#39;,
+     paragraph1: &#39;Vue2&#39;
+  }
+})
+</pre></div>
+
+
+<p>此时，输出结果更新为：</p>
+<div class="highlight"><pre>This is an h1
+Just an h2 heading
+Vue2 is fun
+</pre></div>
+
+
+<p>我们也可以更改我们的入口点，例如，我们配置Vue只操作p标签：</p>
+<div class="highlight"><pre>new Vue({
+  el: &#39;p&#39;,
+  data: {
+     heading1: &#39;This is an h1&#39;,
+     //heading2: &#39;h2 heading&#39;,
+     paragraph1: &#39;Vue2&#39;
+  }
+})
+</pre></div>
+
+
+<p>修改之后，我们得到类似如下内容：</p>
+<div class="highlight"><pre><span class="cp">{{</span> <span class="nv">heading1</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">Just an </span><span class="cp">{{</span> <span class="nv">heading2</span> <span class="cp">}}</span><span class="x"></span>
+<span class="x">Vue2 is fun</span>
+</pre></div>
+
+
+<p>这样我们在遇到如下情况时，mustache模板会渲染为原文本内容：</p>
+<ul>
+<li>入口点没有引用数据</li>
+<li>入口点不存在在</li>
+</ul>
+<p>我们也察觉到了我们的入口可以使用各种选择器。你可以使用类似在jQuery进行元素选择：</p>
+<p>例如，我们可以为我们入口点使用更为复杂的选择器</p>
+<div class="highlight"><pre>new Vue({
+  el: &#39;div#entryPoint&#39;,
+  data: {
+     heading1: &#39;This is an h1&#39;,
+     heading2: &#39;h2 heading&#39;,
+     paragraph1: &#39;Vue2&#39;
+  }
+})
+</pre></div>
+
+
+<h3>使用函数来配置Vue数据</h3>
+<p>Vue里配置的data选项可以是个对象或者函数。之前我们使用的是对象型式。使用函数也非常简单。</p>
+<p>这次，我们使用函数作为data值：</p>
+<div class="highlight"><pre><span class="k">new</span> <span class="nx">Vue</span><span class="p">({</span>
+  <span class="nx">el</span><span class="o">:</span> <span class="s1">&#39;#entryPoint&#39;</span><span class="p">,</span>
+  <span class="nx">data</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="p">{</span>
+     <span class="nx">heading1</span><span class="o">:</span> <span class="s1">&#39;Just an h1 heading here&#39;</span><span class="p">,</span>
+     <span class="nx">heading2</span><span class="o">:</span> <span class="s1">&#39;heading 2 here&#39;</span><span class="p">,</span>
+     <span class="nx">paragraph1</span><span class="o">:</span> <span class="s1">&#39;Vue JS data as a function&#39;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p>现在我们已经熟悉了Vue语法，让我们来看看它能用来做什么。</p>
+<h2>Vue可以解决什么问题</h2>
+<p>为避免大量清单，我们只提一些比较强作用的：</p>
+<ul>
+<li>Vue - jQuery的继承？</li>
+<li>Vue 适合初学者入门</li>
+<li>Vue是一个渐进式框架</li>
+<li>Vue针对动画和交互有强操作能力</li>
+<li>Vue和其他现代化前端框架和库非常相似</li>
+</ul>
+<p>让我们细致了解这些观点：</p>
+<h3>jQuery的继承者</h3>
+<p>著名的jQuery库诞生于2006年，它的给我带来了一些非常棒的能力：  </p>
+<ul>
+<li>解决不同浏览器兼容性问题。</li>
+<li>提供了非常简单的方式来操作DOM节点</li>
+<li>是个学习JavaScript很好的入口</li>
+<li>具有非常强大的Ajax API</li>
+</ul>
+<p>然后当前有一些变化</p>
+<p>2006年和现在最大的区别就是 virtual DOM</p>
+<p><a href="https://www.cnblogs.com/wubaiqing/p/6726429.html">详细了解Virtual DOM</a></p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/jie-shao-vue.html&text=介绍Vue&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/jie-shao-vue.html&t=介绍Vue"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/jie-shao-vue.html&title=介绍Vue" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

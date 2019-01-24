@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>Python使用Zero-Copy和Buffer Protocol实现高性能编程</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/pythonshi-yong-zero-copyhe-buffer-protocolshi-xian-gao-xing-neng-bian-cheng.html">
+<meta name="twitter:title" content="疯人院主任 ~ Python使用Zero-Copy和Buffer Protocol实现高性能编程">
+<meta name="twitter:description" content="无论你程序是做什么的，它经常都需要处理大量的数据。这些数据大部分表现形式为strings（字符串）。然而，当你对字符串大批量的拷贝，切片和修改操作时是相当低效的。为什么？ 让我们假设一个读取二进制数据的大文件示例，然后将部分数据拷贝到另外一个文件。要展示该程序所使用的内存，我们使用memory_profiler，一个强大的Python包，让我们可以一行一行观察程序所使用的内存。 @profile def read_random(): with open(&#34;/dev/urandom&#34;, &#34;rb&#34;) as source: content = source.read(1024 * 10000) content_to_write = content[1024:] print(f&#34;content length: {len(content)}, content to write length {len(content_to_write)}&#34;) with open(&#34;/dev/null&#34;, &#34;wb ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ Python使用Zero-Copy和Buffer Protocol实现高性能编程" />
+<meta property="og:description" content="无论你程序是做什么的，它经常都需要处理大量的数据。这些数据大部分表现形式为strings（字符串）。然而，当你对字符串大批量的拷贝，切片和修改操作时是相当低效的。为什么？ 让我们假设一个读取二进制数据的大文件示例，然后将部分数据拷贝到另外一个文件。要展示该程序所使用的内存，我们使用memory_profiler，一个强大的Python包，让我们可以一行一行观察程序所使用的内存。 @profile def read_random(): with open(&#34;/dev/urandom&#34;, &#34;rb&#34;) as source: content = source.read(1024 * 10000) content_to_write = content[1024:] print(f&#34;content length: {len(content)}, content to write length {len(content_to_write)}&#34;) with open(&#34;/dev/null&#34;, &#34;wb ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/pythonshi-yong-zero-copyhe-buffer-protocolshi-xian-gao-xing-neng-bian-cheng.html" rel="bookmark" title="Permalink to Python使用Zero-Copy和Buffer Protocol实现高性能编程">Python使用Zero-Copy和Buffer Protocol实现高性能编程</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>四 24 一月 2019<br />
+    <b>In: </b><a href="/category/python.html" rel="bookmark" title="Permalink to Python">Python</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>无论你程序是做什么的，它经常都需要处理大量的数据。这些数据大部分表现形式为strings（字符串）。然而，当你对字符串大批量的拷贝，切片和修改操作时是相当低效的。为什么？</p>
+<p>让我们假设一个读取二进制数据的大文件示例，然后将部分数据拷贝到另外一个文件。要展示该程序所使用的内存，我们使用<a href="https://pypi.python.org/pypi/memory_profiler">memory_profiler</a>，一个强大的Python包，让我们可以一行一行观察程序所使用的内存。</p>
+<div class="highlight"><pre>@profile
+def read_random():
+    with open(&quot;/dev/urandom&quot;, &quot;rb&quot;) as source:
+        content = source.read(1024 * 10000)
+        content_to_write = content[1024:]
+    print(f&quot;content length: {len(content)}, content to write length {len(content_to_write)}&quot;)
+    with open(&quot;/dev/null&quot;, &quot;wb&quot;) as target:
+        target.write(content_to_write)
+
+
+if __name__ == &quot;__main__&quot;:
+    read_random()
+</pre></div>
+
+
+<p>使用memory_profiler模块来执行以上程序，输出如下：</p>
+<div class="highlight"><pre><span class="nv">$ </span>python -m memory_profiler example.py 
+content length: 10240000, content to write length 10238976
+Filename: example.py
+
+Line <span class="c">#    Mem usage    Increment   Line Contents</span>
+<span class="o">================================================</span>
+     <span class="m">1</span>   14.320 MiB   14.320 MiB   @profile
+     <span class="m">2</span>                             def read_random<span class="o">()</span>:
+     <span class="m">3</span>   14.320 MiB    0.000 MiB       with open<span class="o">(</span><span class="s2">&quot;/dev/urandom&quot;</span>, <span class="s2">&quot;rb&quot;</span><span class="o">)</span> as <span class="nb">source</span>:
+     <span class="m">4</span>   24.117 MiB    9.797 MiB           <span class="nv">content</span> <span class="o">=</span> source.read<span class="o">(</span><span class="m">1024</span> * 10000<span class="o">)</span>
+     <span class="m">5</span>   33.914 MiB    9.797 MiB           <span class="nv">content_to_write</span> <span class="o">=</span> content<span class="o">[</span>1024:<span class="o">]</span>
+     <span class="m">6</span>   33.914 MiB    0.000 MiB       print<span class="o">(</span>f<span class="s2">&quot;content length: {len(content)}, content to write length {len(content_to_write)}&quot;</span><span class="o">)</span>
+     <span class="m">7</span>   33.914 MiB    0.000 MiB       with open<span class="o">(</span><span class="s2">&quot;/dev/null&quot;</span>, <span class="s2">&quot;wb&quot;</span><span class="o">)</span> as target:
+     <span class="m">8</span>   33.914 MiB    0.000 MiB           target.write<span class="o">(</span>content_to_write<span class="o">)</span>
+</pre></div>
+
+
+<p>我们通过<strong>source.read</strong>从<strong>/dev/unrandom</strong>加载了10 MB数据。Python需要大概需要分配10 MB内存来以字符串存储这个数据。之后的<strong>content[1024:]</strong>指令越过开头的一个单位的KB数据进行数据拷贝，也分配了大概10 MB。</p>
+<p>这里有趣的是在哪里呢，也就是构建<strong>content_to_write</strong>时10 MB的程序内存增长。切片操作拷贝了除了开头的一个单位的KB其他所有的数据到一个新的字符串对象。</p>
+<p>如果处理类似大量的字节数组对象操作那是简直就是灾难。如果你之前写过C语言，在使用<strong>memcpy()</strong>需要注意点是：在内存使用以及总体性能来说，复制内存很慢。</p>
+<p>然而，作为C程序员的你，知道字符串其实就是由字符数组构成，你不非得通过拷贝也能只处理部分字符，通过使用基本的指针运算——只需要确保整个字符串是连续的内存区域。</p>
+<p>在Python同样提供了buffer protocol实现。buffer protocol定义在<a href="http://www.python.org/dev/peps/pep-3118/">PEP 3118</a>，描述了使用C语言API实现各种类型的支持，例如字符串。</p>
+<p>当一个对象实现了该协议，你就可以使用<strong>memoryview</strong>类构造一个<strong>memoryview</strong>对象引用原始内存对象。</p>
+<div class="highlight"><pre>&gt;&gt;&gt; s = b&quot;abcdefgh&quot;
+&gt;&gt;&gt; view = memoryview(s)
+&gt;&gt;&gt; view[1]
+98
+&gt;&gt;&gt; limited = view[1:3]
+&gt;&gt;&gt; limited
+&lt;memory at 0x7f6ff2df1108&gt;
+&gt;&gt;&gt; bytes(view[1:3])
+b&#39;bc&#39;
+</pre></div>
+
+
+<blockquote>
+<blockquote>
+<p>注意：98是字符b的ACII码</p>
+</blockquote>
+</blockquote>
+<p>在上面的例子中，在使用<strong>memoryview</strong>对象的切片操作，同样返回一个<strong>memoryview</strong>对象。意味着它并没有拷贝任何数据，而是通过引用部分数据实现的。</p>
+<p>下面图示解释发生了什么：</p>
+<p><img alt="alt" src="http://thyrsi.com/t6/662/1548313690x2890174202.png" /></p>
+<p>因此，我们可以将之前的程序改造得更加高效。我们需要使用<strong>memoryview</strong>对象来引用数据，而不是开辟一个新的字符串。</p>
+<div class="highlight"><pre>@profile
+def read_random():
+    with open(&quot;/dev/urandom&quot;, &quot;rb&quot;) as source:
+        content = source.read(1024 * 10000)
+        content_to_write = memoryview(content)[1024:]
+    print(f&quot;content length: {len(content)}, content to write length {len(content_to_write)}&quot;)
+    with open(&quot;/dev/null&quot;, &quot;wb&quot;) as target:
+        target.write(content_to_write)
+
+
+if __name__ == &quot;__main__&quot;:
+    read_random()
+</pre></div>
+
+
+<p>我们再一次使用memory profiler执行上面程序：</p>
+<div class="highlight"><pre><span class="nv">$ </span>python -m memory_profiler example.py 
+content length: 10240000, content to write length 10238976
+Filename: example.py
+
+Line <span class="c">#    Mem usage    Increment   Line Contents</span>
+<span class="o">================================================</span>
+     <span class="m">1</span>   14.219 MiB   14.219 MiB   @profile
+     <span class="m">2</span>                             def read_random<span class="o">()</span>:
+     <span class="m">3</span>   14.219 MiB    0.000 MiB       with open<span class="o">(</span><span class="s2">&quot;/dev/urandom&quot;</span>, <span class="s2">&quot;rb&quot;</span><span class="o">)</span> as <span class="nb">source</span>:
+     <span class="m">4</span>   24.016 MiB    9.797 MiB           <span class="nv">content</span> <span class="o">=</span> source.read<span class="o">(</span><span class="m">1024</span> * 10000<span class="o">)</span>
+     <span class="m">5</span>   24.016 MiB    0.000 MiB           <span class="nv">content_to_write</span> <span class="o">=</span> memoryview<span class="o">(</span>content<span class="o">)[</span>1024:<span class="o">]</span>
+     <span class="m">6</span>   24.016 MiB    0.000 MiB       print<span class="o">(</span>f<span class="s2">&quot;content length: {len(content)}, content to write length {len(content_to_write)}&quot;</span><span class="o">)</span>
+     <span class="m">7</span>   24.016 MiB    0.000 MiB       with open<span class="o">(</span><span class="s2">&quot;/dev/null&quot;</span>, <span class="s2">&quot;wb&quot;</span><span class="o">)</span> as target:
+     <span class="m">8</span>   24.016 MiB    0.000 MiB           target.write<span class="o">(</span>content_to_write<span class="o">)</span>
+</pre></div>
+
+
+<p>在该程序中，<strong>source.read</strong>仍然分配了10 MB内存来读取文件内容。然而，使用memoryview来引用部分内容时，并没有额外在分配内存。</p>
+<p>相比之前的版本，这里节省了大概50%的内存开销。</p>
+<p>该技巧，在处理sockets通信的时候极其有用。当通过socket发送数据时，所有的数据可能并没有在一次调用就发送。</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="err">…</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="err">…</span><span class="p">)</span>
+<span class="c"># Build a bytes object with more than 100 millions times the letter `a`</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">b</span><span class="s">&quot;a&quot;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">100000</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">data</span><span class="p">:</span>
+    <span class="n">sent</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="c"># Remove the first `sent` bytes sent</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">sent</span><span class="p">:]</span> <span class="o">&lt;</span><span class="mi">2</span><span class="o">&gt;</span>
+</pre></div>
+
+
+<p>使用如下实现，程序一次次拷贝直到所有的数据发出。通过使用<strong>memoryview</strong>，可以实现zero-copy（零拷贝）方式来完成该工作，具有更高的性能：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="err">…</span><span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="err">…</span><span class="p">)</span>
+<span class="c"># Build a bytes object with more than 100 millions times the letter `a`</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">b</span><span class="s">&quot;a&quot;</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1024</span> <span class="o">*</span> <span class="mi">100000</span><span class="p">)</span>
+<span class="n">mv</span> <span class="o">=</span> <span class="n">memoryview</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">mv</span><span class="p">:</span>
+    <span class="n">sent</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">mv</span><span class="p">)</span>
+    <span class="c"># Build a new memoryview object pointing to the data which remains to be sent</span>
+    <span class="n">mv</span> <span class="o">=</span> <span class="n">mv</span><span class="p">[</span><span class="n">sent</span><span class="p">:]</span>
+</pre></div>
+
+
+<p>在这里就不会发生任何拷贝，也不会在给<strong>data</strong>分配了100 MB内存之后再分配多余的内存来进行多次发送了。</p>
+<p>目前，我们通过使用<strong>memoryview</strong>对象实现高效数据写入，但在某些情况下读取也同样适用。在Python中大部分 I/O 操作已经实现了buffer protocol机制。在本例中，我们并不需要<strong>memoryview</strong>对象，我可以请求 I/O 函数写入我们预定义好的对象：</p>
+<div class="highlight"><pre>&gt;&gt;&gt; ba = bytearray(8)
+&gt;&gt;&gt; ba
+bytearray(b&#39;\x00\x00\x00\x00\x00\x00\x00\x00&#39;)
+&gt;&gt;&gt; with open(&quot;/dev/urandom&quot;, &quot;rb&quot;) as source:
+...     source.readinto(ba)
+... 
+8
+&gt;&gt;&gt; ba
+bytearray(b&#39;`m.z\x8d\x0fp\xa1&#39;)
+</pre></div>
+
+
+<p>通过该机制，我们可以很简单写入到预定义的buffer中（在C语言中，你可能需要多次调用<strong>malloc()</strong>)。</p>
+<p>适用<strong>memoryview</strong>，你甚至可以将数据放入到内存区域任意点：</p>
+<div class="highlight"><pre>&gt;&gt;&gt; ba = bytearray(8)
+&gt;&gt;&gt; # Reference the _bytearray_ from offset 4 to its end
+&gt;&gt;&gt; ba_at_4 = memoryview(ba)[4:]
+&gt;&gt;&gt; with open(&quot;/dev/urandom&quot;, &quot;rb&quot;) as source:
+... # Write the content of /dev/urandom from offset 4 to the end of the
+... # bytearray, effectively reading 4 bytes only
+...     source.readinto(ba_at_4)
+... 
+4
+&gt;&gt;&gt; ba
+bytearray(b&#39;\x00\x00\x00\x00\x0b\x19\xae\xb2&#39;)
+</pre></div>
+
+
+<p>buffer protocol是实现低内存开销的基础，具备很强的性能。虽然Python隐藏了所有的内存分配，开发者不需要关系内部是怎么样实现的。</p>
+<p>可以再去了解一下<strong>array</strong>模块和<strong>struct</strong>模块是如何处理buffer protocol的，zero copy操作是相当高效的。</p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/pythonshi-yong-zero-copyhe-buffer-protocolshi-xian-gao-xing-neng-bian-cheng.html&text=Python使用Zero-Copy和Buffer Protocol实现高性能编程&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/pythonshi-yong-zero-copyhe-buffer-protocolshi-xian-gao-xing-neng-bian-cheng.html&t=Python使用Zero-Copy和Buffer Protocol实现高性能编程"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/pythonshi-yong-zero-copyhe-buffer-protocolshi-xian-gao-xing-neng-bian-cheng.html&title=Python使用Zero-Copy和Buffer Protocol实现高性能编程" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

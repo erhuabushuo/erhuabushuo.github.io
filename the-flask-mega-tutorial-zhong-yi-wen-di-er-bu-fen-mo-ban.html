@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>《The Flask Mega-Tutorial》中译文：第二部分、模板</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/the-flask-mega-tutorial-zhong-yi-wen-di-er-bu-fen-mo-ban.html">
+<meta name="twitter:title" content="疯人院主任 ~ 《The Flask Mega-Tutorial》中译文：第二部分、模板">
+<meta name="twitter:description" content="来自Miga的Flask新版系列教程，翻译水平有限，大部分按自己理解进行翻译，内容有删减. 什么是模板 如果我想应用程序的主页有个标题用来欢迎用户。现在，我将忽略当前应用程序还有用户的概念，后面我们会专门提及。这里我先通过字典来构建mock用户进行测试，如： user = {&#39;username&#39;: &#39;Miguel&#39;} 通过使用mock对象在需要专注去处理某个问题而不需要掺乎其他问题时非常有用。我现在想要设计我的应用程序首先，而现在不又不想去管现在还没有用户系统，所以我就直接生成了一个对象以便不影响我继续。 该视图函数返回了简单的字符串。现在我想做的是给它返回一个完整的HTML页面，类似如下： from app import app @app.route(&#39;/&#39;) @app.route(&#39;/index&#39;) def index(): user = {&#39;username&#39;: &#39;Miguel&#39;} return f&#39;&#39;&#39; &lt;html&gt; &lt;head&gt; &lt;title&gt;Home Page - Microblog&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt;Hello, {user[&#39;username ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ 《The Flask Mega-Tutorial》中译文：第二部分、模板" />
+<meta property="og:description" content="来自Miga的Flask新版系列教程，翻译水平有限，大部分按自己理解进行翻译，内容有删减. 什么是模板 如果我想应用程序的主页有个标题用来欢迎用户。现在，我将忽略当前应用程序还有用户的概念，后面我们会专门提及。这里我先通过字典来构建mock用户进行测试，如： user = {&#39;username&#39;: &#39;Miguel&#39;} 通过使用mock对象在需要专注去处理某个问题而不需要掺乎其他问题时非常有用。我现在想要设计我的应用程序首先，而现在不又不想去管现在还没有用户系统，所以我就直接生成了一个对象以便不影响我继续。 该视图函数返回了简单的字符串。现在我想做的是给它返回一个完整的HTML页面，类似如下： from app import app @app.route(&#39;/&#39;) @app.route(&#39;/index&#39;) def index(): user = {&#39;username&#39;: &#39;Miguel&#39;} return f&#39;&#39;&#39; &lt;html&gt; &lt;head&gt; &lt;title&gt;Home Page - Microblog&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;h1&gt;Hello, {user[&#39;username ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/the-flask-mega-tutorial-zhong-yi-wen-di-er-bu-fen-mo-ban.html" rel="bookmark" title="Permalink to 《The Flask Mega-Tutorial》中译文：第二部分、模板">《The Flask Mega-Tutorial》中译文：第二部分、模板</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>日 25 三月 2018<br />
+    <b>In: </b><a href="/category/flask.html" rel="bookmark" title="Permalink to Flask">Flask</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>来自Miga的Flask新版系列教程，翻译水平有限，大部分按自己理解进行翻译，内容有删减.</p>
+<h2>什么是模板</h2>
+<p>如果我想应用程序的主页有个标题用来欢迎用户。现在，我将忽略当前应用程序还有用户的概念，后面我们会专门提及。这里我先通过字典来构建mock用户进行测试，如：</p>
+<div class="highlight"><pre>user = {&#39;username&#39;: &#39;Miguel&#39;}
+</pre></div>
+
+
+<p>通过使用mock对象在需要专注去处理某个问题而不需要掺乎其他问题时非常有用。我现在想要设计我的应用程序首先，而现在不又不想去管现在还没有用户系统，所以我就直接生成了一个对象以便不影响我继续。</p>
+<p>该视图函数返回了简单的字符串。现在我想做的是给它返回一个完整的HTML页面，类似如下：</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/index&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;username&#39;</span><span class="p">:</span> <span class="s">&#39;Miguel&#39;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">f</span><span class="s">&#39;&#39;&#39;</span>
+<span class="s">&lt;html&gt;</span>
+<span class="s">    &lt;head&gt;</span>
+<span class="s">        &lt;title&gt;Home Page - Microblog&lt;/title&gt;</span>
+<span class="s">    &lt;/head&gt;</span>
+<span class="s">    &lt;body&gt;</span>
+<span class="s">        &lt;h1&gt;Hello, {user[&#39;username&#39;]}!&lt;/h1&gt;</span>
+<span class="s">    &lt;/body&gt;</span>
+<span class="s">&lt;/html&gt;&#39;&#39;&#39;</span>
+</pre></div>
+
+
+<p>这里我使用了Python 3.6新增的<a href="https://docs.python.org/3/whatsnew/3.6.html#whatsnew36-pep498">Formatted String Literals</a>进行字符串格式化方式，他是通过字符串引入f前缀以便常量中可以用{...}插值方式带入局部变量。</p>
+<p>更新完视图函数后我们重启应用，再浏览器访问地址将看到如下结果：</p>
+<p><img alt="Alt" src="https://blog.miguelgrinberg.com/static/images/mega-tutorial/ch02-mock-user.png" /></p>
+<p>你应该也看得出来使用如上方式来处理模板极为不好，不方便适应用扩展。</p>
+<p>如果我们可以将业务代码和展现进行分离的话，代码就更好组织了。在团队协作中也可能进行对不同技能人群进行技术分工，例如前端和后端开发人员。</p>
+<p>Flask的模板技术就是为了解决这一问题的，通过将模板独立文件保存在应用程序里的templates目录下。现在，确保你在microblog目录下，然后创建我们要存放模板的templates目录：</p>
+<div class="highlight"><pre>(venv) $ mkdir app/templates
+</pre></div>
+
+
+<p>现在我就将模板迁移到文件app/templates/index.html:</p>
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span><span class="cp">{{</span> <span class="nv">title</span> <span class="cp">}}</span> - Microblog<span class="nt">&lt;/title&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hello, <span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+
+<p>这是一个非常简单的HTML页面，唯一要提及的就是里面放置的使用{{ ... }}占位符，这些占位符是用来在引用模板时由视图函数插入的变量。</p>
+<p>由于模板已经分离，视图函数也变轻了很多。</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/index&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="n">users</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;username&#39;</span><span class="p">:</span> <span class="s">&#39;Miguel&#39;</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&#39;index.html&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;Home&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
+</pre></div>
+
+
+<p>看起来是不是顺眼很多？</p>
+<p>要呈现模板我们需要引入Flask框架的render_template()函数，该函数接收模板文件名以及要传递到模板里头插值变量，最终将结果返回。</p>
+<p>render_template()函数实际调用的是Jinja2模板引擎。</p>
+<h2>条件语句</h2>
+<p>我们现在已经知道如何使用Jinja2插入变量，不过它给我们提供了更多强大的操作支持，它也支持控制语句，在{% ... %}块定义。接下来我们了解一下如何加入条件语句：</p>
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;ie=edge&quot;</span><span class="nt">&gt;</span>
+    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">title</span> <span class="cp">%}</span>
+    <span class="nt">&lt;title&gt;</span><span class="cp">{{</span> <span class="nv">title</span> <span class="cp">}}</span> - Microblog<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+    <span class="nt">&lt;title&gt;</span>Welcome to microblog<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hello, <span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+
+<p>你看现在我们的模板更智能了，如果视图函数传递了title变量，那么它会呈现带了title占位符标签，如果没有它将呈现不带title占位符标签，这里是个欢迎语句，你可以通过移除title变量查看效果。</p>
+<h2>循环</h2>
+<p>登陆的用户想看最近发布的日志，我们这就来实现它。</p>
+<p>再一次，我会用到伪造(Fake)对象来构建一些用户和日志用来呈现：</p>
+<p>app/routes.py</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">app</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">render_template</span>
+
+
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/&#39;</span><span class="p">)</span>
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/index&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">index</span><span class="p">():</span>
+    <span class="n">user</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;username&#39;</span><span class="p">:</span> <span class="s">&#39;Miguel&#39;</span><span class="p">}</span>
+    <span class="n">posts</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="s">&#39;author&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;username&#39;</span><span class="p">:</span> <span class="s">&#39;John&#39;</span><span class="p">},</span>
+            <span class="s">&#39;body&#39;</span><span class="p">:</span> <span class="s">&#39;Beautiful day in Portland!&#39;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="s">&#39;author&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s">&#39;username&#39;</span><span class="p">:</span> <span class="s">&#39;Susan&#39;</span><span class="p">},</span>
+            <span class="s">&#39;body&#39;</span><span class="p">:</span> <span class="s">&#39;The Avengers movie was so cool!&#39;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&#39;index.html&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;Home&#39;</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="n">user</span><span class="p">,</span> <span class="n">posts</span><span class="o">=</span><span class="n">posts</span><span class="p">)</span>
+</pre></div>
+
+
+<p>这里我使用列表来存放日志，每项是一个字典，里面含有author和body字段。我再进行实际实现时我会尽量保留使用这些字段名称，这可以尽量做到最少改动。</p>
+<p>在模板这边我们需要解决另一个问题。如何在模板中呈现列表元素呢？</p>
+<p>Jinja2提供了for循环结果语句来解决这个问题：</p>
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;ie=edge&quot;</span><span class="nt">&gt;</span>
+    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">title</span> <span class="cp">%}</span>
+    <span class="nt">&lt;title&gt;</span><span class="cp">{{</span> <span class="nv">title</span> <span class="cp">}}</span> - Microblog<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+    <span class="nt">&lt;title&gt;</span>Welcome to microblog<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;h1&gt;</span>Hello, <span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
+    <span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">posts</span> <span class="cp">%}</span>
+    <span class="nt">&lt;div&gt;&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">post.author.username</span> <span class="cp">}}</span> says: <span class="nt">&lt;b&gt;</span><span class="cp">{{</span> <span class="nv">post.body</span> <span class="cp">}}</span><span class="nt">&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;</span>
+    <span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+
+<p>停止应用再运行，刷新浏览器看看：</p>
+<p><img alt="" src="https://blog.miguelgrinberg.com/static/images/mega-tutorial/ch02-mock-posts.png" /></p>
+<h2>模板继承</h2>
+<p>大部分应用程序中页面中会有一些类似相同部分，例如导航条或者一些常用链接等。我们也可以在每个HTML页面中都拷贝相同代码来实现，但是如果随着页面增多，重复工作也就增多了，更重要的是如果做了修改也带了不必要的重复工作，增加了出错的可能性。</p>
+<p>Jinja2模板引擎提供了模板继承的特性来解决该问题，我们可以通过一个基础模板将公共部分抽出来，然后通过继承该模板方式进行扩充。</p>
+<p>所以我们将新建一个叫做<strong>base.html</strong>文件，该文件将包含一个导航条，还有之前的标题呈现部分。如下：</p>
+<p><strong>app/templates/base.html</strong></p>
+<div class="highlight"><pre><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html</span> <span class="na">lang=</span><span class="s">&quot;en&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">&quot;UTF-8&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">&quot;viewport&quot;</span> <span class="na">content=</span><span class="s">&quot;width=device-width, initial-scale=1.0&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">http-equiv=</span><span class="s">&quot;X-UA-Compatible&quot;</span> <span class="na">content=</span><span class="s">&quot;ie=edge&quot;</span><span class="nt">&gt;</span>
+    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">title</span> <span class="cp">%}</span>
+    <span class="nt">&lt;title&gt;</span><span class="cp">{{</span> <span class="nv">title</span> <span class="cp">}}</span> - Microblog<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+    <span class="nt">&lt;title&gt;</span>Welcome to microblog<span class="nt">&lt;/title&gt;</span>
+    <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;div&gt;</span>Microblog: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;/index&quot;</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;hr&gt;</span>
+    <span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+
+<p>这该木板中，我们使用block语句来定义哪里的内容将会在继承模板中实现。通过指定唯一名称给到继承模板进行引用。</p>
+<p>在基础模板好了后，我们需要在index.html中继承base.html:</p>
+<p><strong>app/templates/index.html</strong></p>
+<div class="highlight"><pre><span class="cp">{%</span> <span class="k">extends</span> <span class="s2">&quot;base.html&quot;</span> <span class="cp">%}</span>
+
+<span class="cp">{%</span> <span class="k">block</span> <span class="nv">content</span> <span class="cp">%}</span>
+<span class="nt">&lt;h1&gt;</span>Hello, <span class="cp">{{</span> <span class="nv">user.username</span> <span class="cp">}}</span><span class="nt">&lt;/h1&gt;</span>
+<span class="cp">{%</span> <span class="k">for</span> <span class="nv">post</span> <span class="k">in</span> <span class="nv">posts</span> <span class="cp">%}</span>
+<span class="nt">&lt;div&gt;&lt;p&gt;</span><span class="cp">{{</span> <span class="nv">post.author.username</span> <span class="cp">}}</span> says: <span class="nt">&lt;b&gt;</span><span class="cp">{{</span> <span class="nv">post.body</span> <span class="cp">}}</span><span class="nt">&lt;/b&gt;&lt;/p&gt;&lt;/div&gt;</span>
+<span class="cp">{%</span> <span class="k">endfor</span> <span class="cp">%}</span>
+<span class="cp">{%</span> <span class="k">endblock</span> <span class="cp">%}</span>
+</pre></div>
+
+
+<p>由于基础HTML结果在base.html中编写了，我们这里仅仅留下实际要实现的content部分了，<strong>extends</strong>语句用来定义继承哪个模板文件。然后使用block语句块通过指定父模板唯一名称块进行实现，Jinja2就知道如何将两个模板合并起来了。现在如果我再创建新的模板，我只需要继承base.html，再实现所要定义的content内容即可了，是不是方便了很多？</p>
+<p><img alt="" src="https://blog.miguelgrinberg.com/static/images/mega-tutorial/ch02-inheritance.png" /></p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/the-flask-mega-tutorial-zhong-yi-wen-di-er-bu-fen-mo-ban.html&text=《The Flask Mega-Tutorial》中译文：第二部分、模板&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/the-flask-mega-tutorial-zhong-yi-wen-di-er-bu-fen-mo-ban.html&t=《The Flask Mega-Tutorial》中译文：第二部分、模板"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/the-flask-mega-tutorial-zhong-yi-wen-di-er-bu-fen-mo-ban.html&title=《The Flask Mega-Tutorial》中译文：第二部分、模板" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

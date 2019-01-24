@@ -1,0 +1,293 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>Python 3.7：介绍数据类(Data Classes)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/python-37jie-shao-shu-ju-lei-data-classes.html">
+<meta name="twitter:title" content="疯人院主任 ~ Python 3.7：介绍数据类(Data Classes)">
+<meta name="twitter:description" content="Python3.7将会在夏天与我们见面，最令人激动的特性就是我们今天要介绍的是dataclass装饰器 什么是数据类 大多数Python开发者均写过类似如下类： class MyClass: def __init__(self, var_a, var_b): self.var_a = var_a self.var_b = var_b 数据类可以帮你自动生成本例这些dunder方法。例如,__init__接收一些属性的初始化值。上面的小例子就可以重写如下： @dataclass class MyClass: var_a: str var_b: str 这里的关键区别是数据类需要使用type hints。如果你之前没有使用过type hint，它可以让你描述该变量应用存放什么的数据类型值。在运行时，这些类型并不会实际进行检测，但是有便于在PyCharm或者类似mypy命令行工具下来检测你的代码。 让我们来看看如何使用它！ 星球大战API 一个真正的影迷是为影片数据创建了一个REST API。有个星球大战粉丝就干了这么件事，创建了星球大战API。他甚至为该API包装了Python库。 让我先忘掉这个包装的库，看看我们自己会怎么实现。 我们可以使用requests库来获取星球大战API： response ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ Python 3.7：介绍数据类(Data Classes)" />
+<meta property="og:description" content="Python3.7将会在夏天与我们见面，最令人激动的特性就是我们今天要介绍的是dataclass装饰器 什么是数据类 大多数Python开发者均写过类似如下类： class MyClass: def __init__(self, var_a, var_b): self.var_a = var_a self.var_b = var_b 数据类可以帮你自动生成本例这些dunder方法。例如,__init__接收一些属性的初始化值。上面的小例子就可以重写如下： @dataclass class MyClass: var_a: str var_b: str 这里的关键区别是数据类需要使用type hints。如果你之前没有使用过type hint，它可以让你描述该变量应用存放什么的数据类型值。在运行时，这些类型并不会实际进行检测，但是有便于在PyCharm或者类似mypy命令行工具下来检测你的代码。 让我们来看看如何使用它！ 星球大战API 一个真正的影迷是为影片数据创建了一个REST API。有个星球大战粉丝就干了这么件事，创建了星球大战API。他甚至为该API包装了Python库。 让我先忘掉这个包装的库，看看我们自己会怎么实现。 我们可以使用requests库来获取星球大战API： response ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/python-37jie-shao-shu-ju-lei-data-classes.html" rel="bookmark" title="Permalink to Python 3.7：介绍数据类(Data Classes)">Python 3.7：介绍数据类(Data Classes)</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>四 26 四月 2018<br />
+    <b>In: </b><a href="/category/python.html" rel="bookmark" title="Permalink to Python">Python</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>Python3.7将会在夏天与我们见面，最令人激动的特性就是我们今天要介绍的是dataclass装饰器</p>
+<h2>什么是数据类</h2>
+<p>大多数Python开发者均写过类似如下类：</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="n">MyClass:</span>
+    <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>, <span class="n">var_a</span>, <span class="n">var_b</span>):
+        <span class="k">self</span>.<span class="n">var_a</span> = <span class="n">var_a</span>
+        <span class="k">self</span>.<span class="n">var_b</span> = <span class="n">var_b</span>
+</pre></div>
+
+
+<p>数据类可以帮你自动生成本例这些dunder方法。例如,__init__接收一些属性的初始化值。上面的小例子就可以重写如下：</p>
+<div class="highlight"><pre>@dataclass
+class MyClass:
+    var_a: str
+    var_b: str
+</pre></div>
+
+
+<p>这里的关键区别是数据类需要使用type hints。如果你之前没有使用过type hint，它可以让你描述该变量应用存放什么的数据类型值。在运行时，这些类型并不会实际进行检测，但是有便于在PyCharm或者类似mypy命令行工具下来检测你的代码。</p>
+<p>让我们来看看如何使用它！</p>
+<h2>星球大战API</h2>
+<p>一个真正的影迷是为影片数据创建了一个REST API。有个星球大战粉丝就干了这么件事，创建了星球大战API。他甚至为该API包装了Python库。</p>
+<p>让我先忘掉这个包装的库，看看我们自己会怎么实现。</p>
+<p>我们可以使用<a href="https://github.com/requests/requests">requests</a>库来获取星球大战API：</p>
+<div class="highlight"><pre>response = requests.get(&#39;https://swapi.co/api/films/1/&#39;)
+</pre></div>
+
+
+<p>该请求返回给我们JSON响应数据。Requests使JSON解析极其简单：</p>
+<div class="highlight"><pre>dictionary = response.json()
+</pre></div>
+
+
+<p>这里我们数据存入了字典结构中，我们来看看它是怎么样子的（有缩减）：</p>
+<div class="highlight"><pre>{
+ &#39;characters&#39;: [&#39;https://swapi.co/api/people/1/&#39;,
+                … ],
+ &#39;created&#39;: &#39;2014-12-10T14:23:31.880000Z&#39;,
+ &#39;director&#39;: &#39;George Lucas&#39;,
+ &#39;edited&#39;: &#39;2015-04-11T09:46:52.774897Z&#39;,
+ &#39;episode_id&#39;: 4,
+ &#39;opening_crawl&#39;: &#39;It is a period of civil war.\r\n … &#39;,
+ &#39;planets&#39;: [&#39;https://swapi.co/api/planets/2/&#39;,
+     ...],
+ &#39;producer&#39;: &#39;Gary Kurtz, Rick McCallum&#39;,
+ &#39;release_date&#39;: &#39;1977-05-25&#39;,
+ &#39;species&#39;: [&#39;https://swapi.co/api/species/5/&#39;,
+                 ...],
+ &#39;starships&#39;: [&#39;https://swapi.co/api/starships/2/&#39;,
+                   ...],
+ &#39;title&#39;: &#39;A New Hope&#39;,
+ &#39;url&#39;: &#39;https://swapi.co/api/films/1/&#39;,
+ &#39;vehicles&#39;: [&#39;https://swapi.co/api/vehicles/4/&#39;,
+                  ...]
+}
+</pre></div>
+
+
+<h2>包装API</h2>
+<p>要对应包装成API，我们需要创建相应的对象以便用户可使用它们。所以我们在 Python 3.6中用一个类来描述/films/请求响应返回的数据：</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="n">StarWarsMovie:</span>
+
+   <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>,
+                <span class="n">title:</span> <span class="n">str</span>,
+                <span class="n">episode_id:</span> <span class="nb">int</span>,
+                <span class="n">opening_crawl:</span> <span class="n">str</span>,
+                <span class="n">director:</span> <span class="n">str</span>,
+                <span class="n">producer:</span> <span class="n">str</span>,
+                <span class="n">release_date:</span> <span class="n">datetime</span>,
+                <span class="n">characters:</span> <span class="nb">List</span>[<span class="n">str</span>],
+                <span class="n">planets:</span> <span class="nb">List</span>[<span class="n">str</span>],
+                <span class="n">starships:</span> <span class="nb">List</span>[<span class="n">str</span>],
+                <span class="n">vehicles:</span> <span class="nb">List</span>[<span class="n">str</span>],
+                <span class="n">species:</span> <span class="nb">List</span>[<span class="n">str</span>],
+                <span class="n">created:</span> <span class="n">datetime</span>,
+                <span class="n">edited:</span> <span class="n">datetime</span>,
+                <span class="n">url:</span> <span class="n">str</span>
+                ):
+
+       <span class="k">self</span>.<span class="n">title</span> = <span class="n">title</span>
+       <span class="k">self</span>.<span class="n">episode_id</span> = <span class="n">episode_id</span>
+       <span class="k">self</span>.<span class="n">opening_crawl</span>= <span class="n">opening_crawl</span>
+       <span class="k">self</span>.<span class="n">director</span> = <span class="n">director</span>
+       <span class="k">self</span>.<span class="n">producer</span> = <span class="n">producer</span>
+       <span class="k">self</span>.<span class="n">release_date</span> = <span class="n">release_date</span>
+       <span class="k">self</span>.<span class="n">characters</span> = <span class="n">characters</span>
+       <span class="k">self</span>.<span class="n">planets</span> = <span class="n">planets</span>
+       <span class="k">self</span>.<span class="n">starships</span> = <span class="n">starships</span>
+       <span class="k">self</span>.<span class="n">vehicles</span> = <span class="n">vehicles</span>
+       <span class="k">self</span>.<span class="n">species</span> = <span class="n">species</span>
+       <span class="k">self</span>.<span class="n">created</span> = <span class="n">created</span>
+       <span class="k">self</span>.<span class="n">edited</span> = <span class="n">edited</span>
+       <span class="k">self</span>.<span class="n">url</span> = <span class="n">url</span>
+
+       <span class="k">if</span> <span class="n">type</span>(<span class="k">self</span>.<span class="n">release_date</span>) <span class="k">is</span> <span class="n">str:</span>
+           <span class="k">self</span>.<span class="n">release_date</span> = <span class="n">dateutil</span>.<span class="n">parser</span>.<span class="n">parse</span>(<span class="k">self</span>.<span class="n">release_date</span>)
+
+       <span class="k">if</span> <span class="n">type</span>(<span class="k">self</span>.<span class="n">created</span>) <span class="k">is</span> <span class="n">str:</span>
+           <span class="k">self</span>.<span class="n">created</span> = <span class="n">dateutil</span>.<span class="n">parser</span>.<span class="n">parse</span>(<span class="k">self</span>.<span class="n">created</span>)
+
+       <span class="k">if</span> <span class="n">type</span>(<span class="k">self</span>.<span class="n">edited</span>) <span class="k">is</span> <span class="n">str:</span>
+           <span class="k">self</span>.<span class="n">edited</span> = <span class="n">dateutil</span>.<span class="n">parser</span>.<span class="n">parse</span>(<span class="k">self</span>.<span class="n">edited</span>)
+</pre></div>
+
+
+<p>细心的读者会发现这里出现大多重复的代码。</p>
+<p>这里就是典型可使用数据类装饰器来帮你跳出的例子。我们仅仅是用一个类来持久数据，带一点点数据验证。来看看我们要做哪些改变。</p>
+<p>首先，数据类会自动生成几个dunder方法。如果我们没有提供任何选项给dataclass装饰器，生成的方法就有：__init__，__eq__和__repr__。Python默认（不是针对数据类）__str__来返回__repr__，如果你定义了__repr__而不是__str__。因此，你做如下修改后将获得四个dunder方法实现：</p>
+<div class="highlight"><pre>@dataclass
+class StarWarsMovie:
+   title: str
+   episode_id: int
+   opening_crawl: str
+   director: str
+   producer: str
+   release_date: datetime
+   characters: List[str]
+   planets: List[str]
+   starships: List[str]
+   vehicles: List[str]
+   species: List[str]
+   created: datetime
+   edited: datetime
+   url: str
+</pre></div>
+
+
+<p>我们移除了__init__方法来确保数据类装饰器可以自动生成该代码。然而，我们失去了函数可做的更多处理。我们的Python 3.6不仅定义了所有初始化属性值，还对日期数据进行了解析。那数据类中如何实现呢？</p>
+<p>如果只是覆盖了__init__，我们就失去了数据类给我们带来的益处。因此，这里提供了dunder方法来为数据进行处理：__post_init__。来看看包装类里头的__post__init__应该是什么样子：</p>
+<div class="highlight"><pre>def __post_init__(self):
+   if type(self.release_date) is str:
+       self.release_date = dateutil.parser.parse(self.release_date)
+
+   if type(self.created) is str:
+       self.created = dateutil.parser.parse(self.created)
+
+   if type(self.edited) is str:
+       self.edited = dateutil.parser.parse(self.edited)
+</pre></div>
+
+
+<p>就是这样！使用数据类时我们减少了三分之一的代码。</p>
+<h2>更多糖果</h2>
+<p>通过传递选项给装饰器，你就定义更多数据类相应行为。默认选项是：</p>
+<div class="highlight"><pre>@dataclass(init=True, repr=True, eq=True, order=False, unsafe_hash=False, frozen=False)
+</pre></div>
+
+
+<ul>
+<li>init决定是否要生成__init__方法</li>
+<li>repr决定是否要生成__repr__方法</li>
+<li>eq和__eq__方法一致，用来决定对象相等测试行为（your_class_instance == another_instance)</li>
+<li>order用来定义是否生成4个duner方法，决定了大于小于和and/or检查。如果你打开了该选项，你就可以排序你的对象</li>
+</ul>
+<p>最后两个选项用来定义对象是否可以被hash。这在你想让你对象可作为对象字典时就有必要。hash函数要确保对象生命中保持一个常量，否则就不能在字典里找到你的对象。默认的数据类__hash__函数会将对象所有成员进行hash。所以也需要将对象配置为只读（通过指定frozen=True）。</p>
+<p>通过设置frozen=True后，任何修改对象的动作都会抛出异常。如果你觉得这样太苛刻了，你也可以仅配置unsafe_hash=True，但是数据类的作者不建议我们这么做。</p>
+<p>如果你想了解更多关于数据类，你可以翻看<a href="https://www.python.org/dev/peps/pep-0557/">PEP</a>文档，或者自己手动进行操作试试！</p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/python-37jie-shao-shu-ju-lei-data-classes.html&text=Python 3.7：介绍数据类(Data Classes)&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/python-37jie-shao-shu-ju-lei-data-classes.html&t=Python 3.7：介绍数据类(Data Classes)"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/python-37jie-shao-shu-ju-lei-data-classes.html&title=Python 3.7：介绍数据类(Data Classes)" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

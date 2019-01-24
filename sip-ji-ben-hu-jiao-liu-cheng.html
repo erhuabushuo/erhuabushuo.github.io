@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>SIP - 基本呼叫流程</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/sip-ji-ben-hu-jiao-liu-cheng.html">
+<meta name="twitter:title" content="疯人院主任 ~ SIP - 基本呼叫流程">
+<meta name="twitter:description" content="以下图示展现了一个基本SIP会话的呼叫流程 我们一步步来解释上面的呼叫流程： 一个INVITE请求发送到proxy server来初始化会话。 proxy server立即响应了一个100 Trying来告知主叫方（alice）不要重传INVITE请求 proxy server从location server查找Bob的地址，拿到地址后，转发INVITE请求 然后，Bob返回了180 Ringing（Provisonal responses)给了Alice 在Bob接起电话后立即返回一个200 OK Alice收到200 OK后发送了ACK给Bob 同时，session已经建立，双方开始收发RTP包 在交谈结束后，任何一方（Alice或者Bob）都可以通过发送BYE请求来终止会话 BYE直接绕过了proxy server由Alice发送给了Bob 最终Bob发送200 OK响应来确认BYTE，最终停止会话 在以上的基本呼叫流程里，标注了三个transactions 整个完整的呼叫（从INVITE到200 OK）称为Dialog SIP 梯形 proxy是如何帮助一个用户连接另一个用户的，让我们通过以下图示来找到答案。 以上拓扑图是扩为人知的SIP梯形，流程如下： 当一个主叫方发起一个呼叫，将INVITE消息发送给proxy ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ SIP - 基本呼叫流程" />
+<meta property="og:description" content="以下图示展现了一个基本SIP会话的呼叫流程 我们一步步来解释上面的呼叫流程： 一个INVITE请求发送到proxy server来初始化会话。 proxy server立即响应了一个100 Trying来告知主叫方（alice）不要重传INVITE请求 proxy server从location server查找Bob的地址，拿到地址后，转发INVITE请求 然后，Bob返回了180 Ringing（Provisonal responses)给了Alice 在Bob接起电话后立即返回一个200 OK Alice收到200 OK后发送了ACK给Bob 同时，session已经建立，双方开始收发RTP包 在交谈结束后，任何一方（Alice或者Bob）都可以通过发送BYE请求来终止会话 BYE直接绕过了proxy server由Alice发送给了Bob 最终Bob发送200 OK响应来确认BYTE，最终停止会话 在以上的基本呼叫流程里，标注了三个transactions 整个完整的呼叫（从INVITE到200 OK）称为Dialog SIP 梯形 proxy是如何帮助一个用户连接另一个用户的，让我们通过以下图示来找到答案。 以上拓扑图是扩为人知的SIP梯形，流程如下： 当一个主叫方发起一个呼叫，将INVITE消息发送给proxy ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/sip-ji-ben-hu-jiao-liu-cheng.html" rel="bookmark" title="Permalink to SIP - 基本呼叫流程">SIP - 基本呼叫流程</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>二 28 八月 2018<br />
+    <b>In: </b><a href="/category/sip.html" rel="bookmark" title="Permalink to SIP">SIP</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>以下图示展现了一个基本SIP会话的呼叫流程</p>
+<p><img alt="alt" src="https://www.tutorialspoint.com/session_initiation_protocol/images/sip_call_flow.jpg" /></p>
+<p>我们一步步来解释上面的呼叫流程：</p>
+<ul>
+<li>一个INVITE请求发送到proxy server来初始化会话。</li>
+<li>proxy server立即响应了一个100 Trying来告知主叫方（alice）不要重传INVITE请求</li>
+<li>proxy server从location server查找Bob的地址，拿到地址后，转发INVITE请求</li>
+<li>然后，Bob返回了180 Ringing（Provisonal responses)给了Alice</li>
+<li>在Bob接起电话后立即返回一个200 OK</li>
+<li>Alice收到200 OK后发送了ACK给Bob</li>
+<li>同时，session已经建立，双方开始收发RTP包</li>
+<li>在交谈结束后，任何一方（Alice或者Bob）都可以通过发送BYE请求来终止会话</li>
+<li>BYE直接绕过了proxy server由Alice发送给了Bob</li>
+<li>最终Bob发送200 OK响应来确认BYTE，最终停止会话</li>
+<li>在以上的基本呼叫流程里，标注了三个transactions</li>
+</ul>
+<p>整个完整的呼叫（从INVITE到200 OK）称为Dialog</p>
+<h2>SIP 梯形</h2>
+<p>proxy是如何帮助一个用户连接另一个用户的，让我们通过以下图示来找到答案。</p>
+<p><img alt="" src="https://www.tutorialspoint.com/session_initiation_protocol/images/sip_trapezoid.jpg" /></p>
+<p>以上拓扑图是扩为人知的SIP梯形，流程如下：</p>
+<ul>
+<li>当一个主叫方发起一个呼叫，将INVITE消息发送给proxy server。在收到了INVITE之后，proxy server尝试通过DNS server来找到被叫的地址</li>
+<li>在拿到下一个路由后，主叫的proxy server(Proxy 1, 也叫做outbound proxy server)发送INVITE  请求到被叫方proxy server，(Proxy 2)也称为被叫方的inbound proxy server。</li>
+<li>inbound proxy server从location server拿到被叫用户注册地址信息。</li>
+<li>在从location server获取到信息后，将呼叫送往目的地。</li>
+<li>一旦user agents获取到对端地址后，它们可以直接通过bypass的方式进行呼叫，例如直接进行conversations.</li>
+</ul>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/sip-ji-ben-hu-jiao-liu-cheng.html&text=SIP - 基本呼叫流程&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/sip-ji-ben-hu-jiao-liu-cheng.html&t=SIP - 基本呼叫流程"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/sip-ji-ben-hu-jiao-liu-cheng.html&title=SIP - 基本呼叫流程" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

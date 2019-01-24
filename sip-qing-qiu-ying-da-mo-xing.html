@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>SIP - 请求应答模型</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/sip-qing-qiu-ying-da-mo-xing.html">
+<meta name="twitter:title" content="疯人院主任 ~ SIP - 请求应答模型">
+<meta name="twitter:description" content="SIP中使用SDP定义在RFC 3264。默认的消息类型为application/sdp。 * 主叫方列出的媒体能力需要出现在SDP中，无论是INVITE还是ACK。 * 被叫方需要在INVITE对应回应的200 OK中列出具备的媒体能力。 一个典型的SIP中使用的SDP包含字段有：version, origin, subject, time, connection以及一个或者多个媒体参数。 subject和time字段没有在SIP中使用，但为保证兼容而保留 在SDP标准中，subject字段是必须的，需要至少一个字符，如果没有主题，建议使用s=- time字段通常设置为t = 00 origin字段是有相应限制的 session-id通常贯穿SIP session保持不变 version在每次SDP改变时都会递增。如果SDP在发送过程没有变，那么version保持一致 由于media session和codec类型作为连接协商的一部分，SIP可以使用SDP指定多个可选择的媒体类型，并且可以选择性的接收或者拒绝这些媒体类型 RFC 3264建议针对每个媒体字段加入a = rtpmap：属性。一个media stream通过设置端口号为0来返回相应SDP媒体字段。 示例 在以下例子中，主叫Tesla想要在INVITE请求中配置音频和视频可用的编解码在SDP中。 v = 0 o = John 0844526 2890844526 IN ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ SIP - 请求应答模型" />
+<meta property="og:description" content="SIP中使用SDP定义在RFC 3264。默认的消息类型为application/sdp。 * 主叫方列出的媒体能力需要出现在SDP中，无论是INVITE还是ACK。 * 被叫方需要在INVITE对应回应的200 OK中列出具备的媒体能力。 一个典型的SIP中使用的SDP包含字段有：version, origin, subject, time, connection以及一个或者多个媒体参数。 subject和time字段没有在SIP中使用，但为保证兼容而保留 在SDP标准中，subject字段是必须的，需要至少一个字符，如果没有主题，建议使用s=- time字段通常设置为t = 00 origin字段是有相应限制的 session-id通常贯穿SIP session保持不变 version在每次SDP改变时都会递增。如果SDP在发送过程没有变，那么version保持一致 由于media session和codec类型作为连接协商的一部分，SIP可以使用SDP指定多个可选择的媒体类型，并且可以选择性的接收或者拒绝这些媒体类型 RFC 3264建议针对每个媒体字段加入a = rtpmap：属性。一个media stream通过设置端口号为0来返回相应SDP媒体字段。 示例 在以下例子中，主叫Tesla想要在INVITE请求中配置音频和视频可用的编解码在SDP中。 v = 0 o = John 0844526 2890844526 IN ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/sip-qing-qiu-ying-da-mo-xing.html" rel="bookmark" title="Permalink to SIP - 请求应答模型">SIP - 请求应答模型</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>二 27 十一月 2018<br />
+    <b>In: </b><a href="/category/sip.html" rel="bookmark" title="Permalink to SIP">SIP</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>SIP中使用SDP定义在RFC 3264。默认的消息类型为<code>application/sdp</code>。</p>
+<div class="highlight"><pre>* 主叫方列出的媒体能力需要出现在SDP中，无论是INVITE还是ACK。
+* 被叫方需要在INVITE对应回应的200 OK中列出具备的媒体能力。
+</pre></div>
+
+
+<p>一个典型的SIP中使用的SDP包含字段有：version, origin, subject, time, connection以及一个或者多个媒体参数。</p>
+<ul>
+<li>subject和time字段没有在SIP中使用，但为保证兼容而保留</li>
+<li>在SDP标准中，subject字段是必须的，需要至少一个字符，如果没有主题，建议使用s=-</li>
+<li>time字段通常设置为t = 00</li>
+<li>origin字段是有相应限制的</li>
+<li>session-id通常贯穿SIP session保持不变</li>
+<li>version在每次SDP改变时都会递增。如果SDP在发送过程没有变，那么version保持一致</li>
+<li>由于media session和codec类型作为连接协商的一部分，SIP可以使用SDP指定多个可选择的媒体类型，并且可以选择性的接收或者拒绝这些媒体类型</li>
+</ul>
+<p>RFC 3264建议针对每个媒体字段加入a = rtpmap：属性。一个media stream通过设置端口号为0来返回相应SDP媒体字段。</p>
+<p>示例</p>
+<p>在以下例子中，主叫Tesla想要在INVITE请求中配置音频和视频可用的编解码在SDP中。</p>
+<div class="highlight"><pre>v = 0 
+o = John 0844526 2890844526 IN IP4 172.22.1.102  
+s = - 
+c = IN IP4 172.22.1.102 
+t = 0 0 
+m = audio 6000 RTP/AVP 97 98 
+a = rtpmap:97 AMR/16000/1 
+a = rtpmap:98 AMR-WB/8000/1 
+m = video 49172 RTP/AVP 32 
+a = rtpmap:32 MPV/90000
+</pre></div>
+
+
+<p>RTP/AVP profile对应编码为97, 98</p>
+<p>被叫方Marry响应呼叫，使用第二个编码对应第一个媒体字段</p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/sip-qing-qiu-ying-da-mo-xing.html&text=SIP - 请求应答模型&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/sip-qing-qiu-ying-da-mo-xing.html&t=SIP - 请求应答模型"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/sip-qing-qiu-ying-da-mo-xing.html&title=SIP - 请求应答模型" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

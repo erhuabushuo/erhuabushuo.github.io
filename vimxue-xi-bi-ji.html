@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>Vim学习笔记</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/vimxue-xi-bi-ji.html">
+<meta name="twitter:title" content="疯人院主任 ~ Vim学习笔记">
+<meta name="twitter:description" content="此书是阅读《Matering Vim Build a software development enviroment with Vim and Neovim》书籍笔记 安装 $ sudo apt-get install make build-essential libncurses5-dev libncursesw5-dev --fix-missing $ git clone https://github.com/vim/vim.git $ cd vim/src $ make $ sudo make install 使用.vimrc配置Vim syntax on &#34; 开启语法高亮 filetype plugin indent on &#34; 开启基于文件类型的缩进 set autoindent &#34; 新行自动缩进 ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ Vim学习笔记" />
+<meta property="og:description" content="此书是阅读《Matering Vim Build a software development enviroment with Vim and Neovim》书籍笔记 安装 $ sudo apt-get install make build-essential libncurses5-dev libncursesw5-dev --fix-missing $ git clone https://github.com/vim/vim.git $ cd vim/src $ make $ sudo make install 使用.vimrc配置Vim syntax on &#34; 开启语法高亮 filetype plugin indent on &#34; 开启基于文件类型的缩进 set autoindent &#34; 新行自动缩进 ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/vimxue-xi-bi-ji.html" rel="bookmark" title="Permalink to Vim学习笔记">Vim学习笔记</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>二 08 一月 2019<br />
+    <b>In: </b><a href="/category/programming.html" rel="bookmark" title="Permalink to Programming">Programming</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>此书是阅读《Matering Vim Build a software development enviroment with Vim and Neovim》书籍笔记</p>
+<h2>安装</h2>
+<div class="highlight"><pre><span class="nv">$ </span>sudo apt-get install make build-essential libncurses5-dev libncursesw5-dev --fix-missing
+<span class="nv">$ </span>git clone https://github.com/vim/vim.git
+<span class="nv">$ </span><span class="nb">cd </span>vim/src
+<span class="nv">$ </span>make
+<span class="nv">$ </span>sudo make install
+</pre></div>
+
+
+<h2>使用.vimrc配置Vim</h2>
+<div class="highlight"><pre>syntax on                   &quot; 开启语法高亮
+filetype plugin indent on   &quot; 开启基于文件类型的缩进
+
+set autoindent              &quot; 新行自动缩进
+set expandtab               &quot; Tab转换为空格
+set tabstop=4               &quot; 每个tab相当于4个空格
+set shiftwidth=4            &quot; 自动缩进使用的空格数
+
+
+set backspace=2             &quot; 修正大部分终端backspace行为
+
+colorscheme murphy          &quot; 更换风格样式
+</pre></div>
+
+
+<p>" 开头为注释部分</p>
+<p>以上设置也可以在编辑时使用类似:set autoindent进行在当前编辑环境下变更进行预览。也可以通过:set tabstop?来获取到当前的值。</p>
+<p>可选的colorscheme有：blue ,darkblue , default , delek , desert , elflord , evening , industry ,koehler , morning , murhpy , pablo , peachpuff , ron , shine , slate ,torte , zellner。咱也可以通过在命令模式下使用:colorscheme 然后按Tab键来自动补全切换。</p>
+<h2>打开文件</h2>
+<div class="highlight"><pre><span class="nv">$ </span>vim animal_farm.py
+</pre></div>
+
+
+<p>如果在打开编辑器</p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/vimxue-xi-bi-ji.html&text=Vim学习笔记&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/vimxue-xi-bi-ji.html&t=Vim学习笔记"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/vimxue-xi-bi-ji.html&title=Vim学习笔记" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

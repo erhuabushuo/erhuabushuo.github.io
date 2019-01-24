@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>Type hinting 和 annotations</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/type-hinting-he-annotations.html">
+<meta name="twitter:title" content="疯人院主任 ~ Type hinting 和 annotations">
+<meta name="twitter:description" content="type hints最大的好处就是易于代码维护。当新成员加入，想要贡献代码时，能减少很多时间。 也方便我们在调用汉书时提供了错误的类型传递导致运行时错误的检测。 第一个类型注解示例 我们使用一个简单例子，两个整数相加。 def add(a, b): return a + b 上面的例子，可工作于任意可以进行+操作符的对象。如果我们仅让该函数只能对整型作为参数，然后也只是返回整型结果呢？ def add(a: int, b: int) -&gt; int: return a + b 我们注意到，返回类型是在函数定义末尾使用 -&gt; 符号来指明。 使用mypi及更多例子 Mypy是为Python构建的静态类型检查器。如果我们使用上面的类型注解，mypy可以在代码中 帮我们找到一些错误。你可以使用在开发流程中任意阶段使用它，比如是在CI中作适当的测试。 安装mypy 我们在虚拟环境中安装mypy $ pip install mypy 我们的示例 我们会进行如下示例描述，虽然代码作用不大 ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ Type hinting 和 annotations" />
+<meta property="og:description" content="type hints最大的好处就是易于代码维护。当新成员加入，想要贡献代码时，能减少很多时间。 也方便我们在调用汉书时提供了错误的类型传递导致运行时错误的检测。 第一个类型注解示例 我们使用一个简单例子，两个整数相加。 def add(a, b): return a + b 上面的例子，可工作于任意可以进行+操作符的对象。如果我们仅让该函数只能对整型作为参数，然后也只是返回整型结果呢？ def add(a: int, b: int) -&gt; int: return a + b 我们注意到，返回类型是在函数定义末尾使用 -&gt; 符号来指明。 使用mypi及更多例子 Mypy是为Python构建的静态类型检查器。如果我们使用上面的类型注解，mypy可以在代码中 帮我们找到一些错误。你可以使用在开发流程中任意阶段使用它，比如是在CI中作适当的测试。 安装mypy 我们在虚拟环境中安装mypy $ pip install mypy 我们的示例 我们会进行如下示例描述，虽然代码作用不大 ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/type-hinting-he-annotations.html" rel="bookmark" title="Permalink to Type hinting 和 annotations">Type hinting 和 annotations</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>三 26 十二月 2018<br />
+    <b>In: </b><a href="/category/python.html" rel="bookmark" title="Permalink to Python">Python</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>type hints最大的好处就是易于代码维护。当新成员加入，想要贡献代码时，能减少很多时间。
+也方便我们在调用汉书时提供了错误的类型传递导致运行时错误的检测。</p>
+<h2>第一个类型注解示例</h2>
+<p>我们使用一个简单例子，两个整数相加。</p>
+<div class="highlight"><pre>def add(a, b):
+    return a + b
+</pre></div>
+
+
+<p>上面的例子，可工作于任意可以进行+操作符的对象。如果我们仅让该函数只能对整型作为参数，然后也只是返回整型结果呢？</p>
+<div class="highlight"><pre>def add(a: int, b: int) -&gt; int:
+    return a + b
+</pre></div>
+
+
+<p>我们注意到，返回类型是在函数定义末尾使用 -&gt; 符号来指明。</p>
+<h2>使用mypi及更多例子</h2>
+<p><a href="https://mypy.rtfd.io/">Mypy</a>是为Python构建的静态类型检查器。如果我们使用上面的类型注解，mypy可以在代码中
+帮我们找到一些错误。你可以使用在开发流程中任意阶段使用它，比如是在CI中作适当的测试。</p>
+<h3>安装mypy</h3>
+<p>我们在虚拟环境中安装mypy</p>
+<div class="highlight"><pre><span class="nv">$ </span>pip install mypy
+</pre></div>
+
+
+<h3>我们的示例</h3>
+<p>我们会进行如下示例描述，虽然代码作用不大，但是我们可以通过它来学习类型注解以及mypy.</p>
+<div class="highlight"><pre><span class="k">class</span> <span class="n">Student:</span>
+
+    <span class="n">def</span> <span class="n">__init__</span>(<span class="k">self</span>, <span class="nb">name</span>, <span class="n">batch</span>, <span class="n">branch</span>, <span class="n">roll</span>):
+        <span class="k">self</span>.<span class="nb">name</span> = <span class="nb">name</span>
+        <span class="k">self</span>.<span class="n">batch</span> = <span class="n">batch</span>
+        <span class="k">self</span>.<span class="n">branch</span> = <span class="n">branch</span>
+        <span class="k">self</span>.<span class="n">roll</span> = <span class="n">roll</span>
+        <span class="k">self</span>.<span class="n">semester</span> = <span class="n">None</span>
+        <span class="k">self</span>.<span class="n">papers</span> = {}
+
+    <span class="n">def</span> <span class="n">is_passed</span>(<span class="k">self</span>):
+        <span class="s">&quot;To find if the student has pass the exam in the current semester&quot;</span>
+        <span class="k">for</span> <span class="n">k</span>, <span class="n">v</span> <span class="n">in</span> <span class="k">self</span>.<span class="n">papers</span>.<span class="n">items</span>():
+            <span class="k">if</span> <span class="n">v</span> &lt; <span class="mi">34</span>:
+                <span class="k">return</span> <span class="nb">False</span>
+
+        <span class="k">return</span> <span class="nb">True</span>
+
+
+    <span class="n">def</span> <span class="n">total_score</span>(<span class="k">self</span>):
+        <span class="s">&quot;Returns the total score of the student&quot;</span>
+        <span class="n">total</span> = <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">k</span>, <span class="n">v</span> <span class="n">in</span> <span class="k">self</span>.<span class="n">papers</span>.<span class="n">items</span>():
+            <span class="n">total</span> += <span class="n">v</span>
+
+        <span class="k">return</span> <span class="n">total</span>
+
+
+<span class="n">std1</span> = <span class="n">Student</span>(<span class="s">&quot;Kushal&quot;</span>, <span class="mi">2005</span>, <span class="s">&quot;cse&quot;</span>, <span class="s">&quot;123&quot;</span>)
+<span class="n">std2</span> = <span class="n">Student</span>(<span class="s">&quot;Sayan&quot;</span>, <span class="mi">2005</span>, <span class="s">&quot;cse&quot;</span>, <span class="mi">121</span>)
+<span class="n">std3</span> = <span class="n">Student</span>(<span class="s">&quot;Anwesha&quot;</span>, <span class="mi">2005</span>, <span class="s">&quot;law&quot;</span>, <span class="mi">122</span>)
+
+<span class="n">std1</span>.<span class="n">papers</span> = {<span class="s">&quot;english&quot;</span>: <span class="mi">78</span>, <span class="s">&quot;math&quot;</span>: <span class="mi">82</span>, <span class="s">&quot;science&quot;</span>: <span class="mi">77</span>}
+<span class="n">std2</span>.<span class="n">papers</span> = {<span class="s">&quot;english&quot;</span>: <span class="mi">80</span>, <span class="s">&quot;math&quot;</span>: <span class="mi">92</span>, <span class="s">&quot;science&quot;</span>: <span class="s">&quot;78&quot;</span>}
+<span class="n">std3</span>.<span class="n">papers</span> = {<span class="s">&quot;english&quot;</span>: <span class="mi">82</span>, <span class="s">&quot;math&quot;</span>: <span class="mi">87</span>, <span class="s">&quot;science&quot;</span>: <span class="mi">77</span>}
+
+<span class="k">for</span> <span class="n">std</span> <span class="n">in</span> [<span class="n">std1</span>, <span class="n">std2</span>, <span class="n">std3</span>]:
+    <span class="nb">print</span>(<span class="s">&quot;Passed: {0}. The toral score of {1} is {2}&quot;</span>.<span class="n">format</span>(<span class="n">std</span>.<span class="n">is_passed</span>(), <span class="n">std</span>.<span class="nb">name</span>, <span class="n">std</span>.<span class="n">total_score</span>()))
+</pre></div>
+
+
+<p>你可能发现了代码中其实有错误，但是在实际开发过程我们经常会发生，并且除了在运行时发现，我们并没有其他更好的机制。</p>
+<h3>使用 mypy</h3>
+<p>我们通过mypy来执行我们的代码，我们把文件取名为students2.py</p>
+<h3>加入一些类型注解</h3>
+<p>我们将会在__init__方法中加入一些类型注解。为减少代码长度，修改如下：</p>
+<div class="highlight"><pre><span class="nt">class</span> <span class="nt">Student</span><span class="o">:</span>
+
+    <span class="nt">def</span> <span class="nt">__init__</span><span class="o">(</span><span class="nt">self</span><span class="o">,</span> <span class="nt">name</span><span class="o">:</span> <span class="nt">str</span><span class="o">,</span> <span class="nt">batch</span><span class="o">:</span> <span class="nt">int</span><span class="o">,</span> <span class="nt">branch</span><span class="o">:</span> <span class="nt">str</span><span class="o">,</span> <span class="nt">roll</span><span class="o">:</span> <span class="nt">int</span><span class="o">)</span> <span class="nt">-</span><span class="o">&gt;</span> <span class="nt">None</span><span class="o">:</span>
+        <span class="nt">self</span><span class="nc">.name</span> <span class="o">=</span> <span class="nt">name</span>
+        <span class="nt">self</span><span class="nc">.batch</span> <span class="o">=</span> <span class="nt">batch</span>
+        <span class="nt">self</span><span class="nc">.branch</span> <span class="o">=</span> <span class="nt">branch</span>
+        <span class="nt">self</span><span class="nc">.roll</span> <span class="o">=</span> <span class="nt">roll</span>
+        <span class="nt">self</span><span class="nc">.semester</span> <span class="o">=</span> <span class="nt">None</span>
+        <span class="nt">self</span><span class="nc">.papers</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="o">$</span> <span class="nt">mypy</span> <span class="nt">students2</span><span class="nc">.py</span> 
+<span class="nt">students2</span><span class="nc">.py</span><span class="nd">:9</span><span class="o">:</span> <span class="nt">error</span><span class="o">:</span> <span class="nt">Need</span> <span class="nt">type</span> <span class="nt">annotation</span> <span class="nt">for</span> <span class="s1">&#39;papers&#39;</span>
+<span class="nt">students2</span><span class="nc">.py</span><span class="nd">:29</span><span class="o">:</span> <span class="nt">error</span><span class="o">:</span> <span class="nt">Argument</span> <span class="nt">4</span> <span class="nt">to</span> <span class="s2">&quot;Student&quot;</span> <span class="nt">has</span> <span class="nt">incompatible</span> <span class="nt">type</span> <span class="s2">&quot;str&quot;</span><span class="o">;</span> <span class="nt">expected</span> <span class="s2">&quot;int&quot;</span>
+</pre></div>
+
+
+<p>可以看到mypy有提示哪些变量没有类型注解，还有在29行，参数我们期望的是整型，但在调用时传递了字符串类型，现在让我们来修正他。</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+
+<span class="k">class</span> <span class="nc">Student</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">branch</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">roll</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">batch</span> <span class="o">=</span> <span class="n">batch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">branch</span> <span class="o">=</span> <span class="n">branch</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">roll</span> <span class="o">=</span> <span class="n">roll</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">semester</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">papers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">def</span> <span class="nf">is_passed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">&quot;To find if the student has pass the exam in the current semester&quot;</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">papers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">v</span> <span class="o">&lt;</span> <span class="mi">34</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">False</span>
+
+        <span class="k">return</span> <span class="bp">True</span>
+
+
+    <span class="k">def</span> <span class="nf">total_score</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="s">&quot;Returns the total score of the student&quot;</span>
+        <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">papers</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">v</span>
+
+        <span class="k">return</span> <span class="n">total</span>
+
+
+<span class="n">std1</span><span class="p">:</span> <span class="n">Student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">&quot;Kushal&quot;</span><span class="p">,</span> <span class="mi">2005</span><span class="p">,</span> <span class="s">&quot;cse&quot;</span><span class="p">,</span> <span class="mi">123</span><span class="p">)</span>
+<span class="n">std2</span><span class="p">:</span> <span class="n">Student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">&quot;Sayan&quot;</span><span class="p">,</span> <span class="mi">2005</span><span class="p">,</span> <span class="s">&quot;cse&quot;</span><span class="p">,</span> <span class="mi">121</span><span class="p">)</span>
+<span class="n">std3</span><span class="p">:</span> <span class="n">Student</span> <span class="o">=</span> <span class="n">Student</span><span class="p">(</span><span class="s">&quot;Anwesha&quot;</span><span class="p">,</span> <span class="mi">2005</span><span class="p">,</span> <span class="s">&quot;law&quot;</span><span class="p">,</span> <span class="mi">122</span><span class="p">)</span>
+
+<span class="n">std1</span><span class="o">.</span><span class="n">papers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;english&quot;</span><span class="p">:</span> <span class="mi">78</span><span class="p">,</span> <span class="s">&quot;math&quot;</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s">&quot;science&quot;</span><span class="p">:</span> <span class="mi">77</span><span class="p">}</span>
+<span class="n">std2</span><span class="o">.</span><span class="n">papers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;english&quot;</span><span class="p">:</span> <span class="mi">80</span><span class="p">,</span> <span class="s">&quot;math&quot;</span><span class="p">:</span> <span class="mi">92</span><span class="p">,</span> <span class="s">&quot;science&quot;</span><span class="p">:</span> <span class="mi">78</span><span class="p">}</span>
+<span class="n">std3</span><span class="o">.</span><span class="n">papers</span> <span class="o">=</span> <span class="p">{</span><span class="s">&quot;english&quot;</span><span class="p">:</span> <span class="mi">82</span><span class="p">,</span> <span class="s">&quot;math&quot;</span><span class="p">:</span> <span class="mi">87</span><span class="p">,</span> <span class="s">&quot;science&quot;</span><span class="p">:</span> <span class="mi">77</span><span class="p">}</span>
+
+<span class="k">for</span> <span class="n">std</span> <span class="ow">in</span> <span class="p">[</span><span class="n">std1</span><span class="p">,</span> <span class="n">std2</span><span class="p">,</span> <span class="n">std3</span><span class="p">]:</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&quot;Passed: {0}. The toral score of {1} is {2}&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">std</span><span class="o">.</span><span class="n">is_passed</span><span class="p">(),</span> <span class="n">std</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">std</span><span class="o">.</span><span class="n">total_score</span><span class="p">()))</span>
+</pre></div>
+
+
+<p>现在，没有任何错误了。在第一行我们还从typing包引入了Dcit。并作为了self.paper的类型注解，这里的意思就是该变量是字典类型，使用字符串作为键，整型作为值。我们设置std1, std2和std3变量注解为Student类。</p>
+<p>现在，我们给papers变量赋一些错误类型的值。</p>
+<div class="highlight"><pre>std1.papers = [&quot;English&quot;, &quot;Math&quot;]
+</pre></div>
+
+
+<p>或者错误的字典键值对</p>
+<div class="highlight"><pre>std2.papers = {1: &quot;Engish&quot;, 2: &quot;Math&quot;}
+</pre></div>
+
+
+<p>我们能看到类似如下错误</p>
+<div class="highlight"><pre><span class="nv">$ </span>mypy students2.py
+students2.py:35: error: Incompatible types in assignment <span class="o">(</span>expression has <span class="nb">type </span>List<span class="o">[</span>str<span class="o">]</span>, variable has <span class="nb">type </span>Dict<span class="o">[</span>str, int<span class="o">])</span>
+students2.py:36: error: Dict entry <span class="m">0</span> has incompatible <span class="nb">type</span> <span class="s2">&quot;int&quot;</span>: <span class="s2">&quot;str&quot;</span>
+students2.py:36: error: Dict entry <span class="m">1</span> has incompatible <span class="nb">type</span> <span class="s2">&quot;int&quot;</span>: <span class="s2">&quot;str&quot;</span>
+</pre></div>
+
+
+<h2>更多类型注解示例</h2>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="n">values</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">city</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">350</span> <span class="c"># The city code, not a name</span>
+
+
+<span class="c"># This function returns a Tuple of two values, a str and an int</span>
+<span class="k">def</span> <span class="nf">get_details</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="s">&quot;Python&quot;</span><span class="p">,</span> <span class="mi">5</span>
+
+<span class="c"># The following is an example of Tuple unpacking</span>
+<span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+<span class="n">marks</span><span class="p">:</span> <span class="nb">int</span>
+<span class="n">name</span><span class="p">,</span> <span class="n">marks</span> <span class="o">=</span> <span class="n">get_details</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">print_all</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+
+
+<span class="n">print_all</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">print_all</span><span class="p">({</span><span class="s">&quot;name&quot;</span><span class="p">:</span> <span class="s">&quot;kushal&quot;</span><span class="p">,</span> <span class="s">&quot;class&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">})</span>
+<span class="c"># alltypes.py:23: error: Argument 1 to &quot;print_all&quot; has incompatible type Dict[str, object]; expected Sequence[Any]</span>
+<span class="c"># But running the code will give us no error with wrong output</span>
+
+<span class="k">def</span> <span class="nf">add_ten</span><span class="p">(</span><span class="n">number</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">number</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">number</span> <span class="o">+</span> <span class="mi">10</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">42</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">add_ten</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">add_ten</span><span class="p">(</span><span class="mi">12</span><span class="p">))</span>
+</pre></div>
+
+
+<p>你可以从<a href="https://www.python.org/dev/peps/pep-0484/">PEP 484</a>了解更多类型。<a href="https://docs.python.org/3/library/typing.html">typing模块</a>进行更多例子解释如何在代码中使用类型注解。</p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/type-hinting-he-annotations.html&text=Type hinting 和 annotations&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/type-hinting-he-annotations.html&t=Type hinting 和 annotations"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/type-hinting-he-annotations.html&title=Type hinting 和 annotations" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

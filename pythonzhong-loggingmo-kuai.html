@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>Python中Logging模块</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/pythonzhong-loggingmo-kuai.html">
+<meta name="twitter:title" content="疯人院主任 ~ Python中Logging模块">
+<meta name="twitter:description" content="在程序工具箱中Logging是一个非常有用的工具。它能帮你梳理程序流程，发觉一些你不曾考虑到的场景。 日志提供给开发者一双眼睛，用来持续观察程序流向。它们可以存储信息，例如访问应用用户的IP地址。如果发生了错误，它可以提供发生错误代码时程序当时的状态和堆栈信息。 通过日志存放有用的数据，不仅仅可以获取到调试错误的便利，也方便对应用进行性能分析以及对市场使用模式进行预测。 Python标准库提供了日志系统的支持，你可以快速在你应用中加入日志。本文，你将学习到在应用中最佳快速使用日志方式，我们也会提到一些高级的用法。 logging模块 logging是一个开箱即用的强大模块，不管你是新手还是企业团队，你都会需要用到它。它也广泛被第三方库所使用，你可以很容易将这些库的日志统一起来。 要在Python加入logging模块非常简单： import logging 导入了logging模块后，你就可以使用称为&#34;logger&#34;来记录你想看到的信息了。默认，含有5种级别日志信息。每个通过相对应的方法来记录。按严重程度排序为： DEBUG INFO WARNING ERROR CRITICAL logging模块提供了默认的logger，无需过多配置就可以使用。相应使用方法： import logging logging.debug(&#39;This is a debug ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ Python中Logging模块" />
+<meta property="og:description" content="在程序工具箱中Logging是一个非常有用的工具。它能帮你梳理程序流程，发觉一些你不曾考虑到的场景。 日志提供给开发者一双眼睛，用来持续观察程序流向。它们可以存储信息，例如访问应用用户的IP地址。如果发生了错误，它可以提供发生错误代码时程序当时的状态和堆栈信息。 通过日志存放有用的数据，不仅仅可以获取到调试错误的便利，也方便对应用进行性能分析以及对市场使用模式进行预测。 Python标准库提供了日志系统的支持，你可以快速在你应用中加入日志。本文，你将学习到在应用中最佳快速使用日志方式，我们也会提到一些高级的用法。 logging模块 logging是一个开箱即用的强大模块，不管你是新手还是企业团队，你都会需要用到它。它也广泛被第三方库所使用，你可以很容易将这些库的日志统一起来。 要在Python加入logging模块非常简单： import logging 导入了logging模块后，你就可以使用称为&#34;logger&#34;来记录你想看到的信息了。默认，含有5种级别日志信息。每个通过相对应的方法来记录。按严重程度排序为： DEBUG INFO WARNING ERROR CRITICAL logging模块提供了默认的logger，无需过多配置就可以使用。相应使用方法： import logging logging.debug(&#39;This is a debug ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/pythonzhong-loggingmo-kuai.html" rel="bookmark" title="Permalink to Python中Logging模块">Python中Logging模块</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>四 25 十月 2018<br />
+    <b>In: </b><a href="/category/python.html" rel="bookmark" title="Permalink to Python">Python</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>在程序工具箱中Logging是一个非常有用的工具。它能帮你梳理程序流程，发觉一些你不曾考虑到的场景。</p>
+<p>日志提供给开发者一双眼睛，用来持续观察程序流向。它们可以存储信息，例如访问应用用户的IP地址。如果发生了错误，它可以提供发生错误代码时程序当时的状态和堆栈信息。</p>
+<p>通过日志存放有用的数据，不仅仅可以获取到调试错误的便利，也方便对应用进行性能分析以及对市场使用模式进行预测。</p>
+<p>Python标准库提供了日志系统的支持，你可以快速在你应用中加入日志。本文，你将学习到在应用中最佳快速使用日志方式，我们也会提到一些高级的用法。</p>
+<h2>logging模块</h2>
+<p>logging是一个开箱即用的强大模块，不管你是新手还是企业团队，你都会需要用到它。它也广泛被第三方库所使用，你可以很容易将这些库的日志统一起来。</p>
+<p>要在Python加入logging模块非常简单：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+</pre></div>
+
+
+<p>导入了logging模块后，你就可以使用称为"logger"来记录你想看到的信息了。默认，含有5种级别日志信息。每个通过相对应的方法来记录。按严重程度排序为：</p>
+<ul>
+<li>DEBUG</li>
+<li>INFO</li>
+<li>WARNING</li>
+<li>ERROR</li>
+<li>CRITICAL</li>
+</ul>
+<p>logging模块提供了默认的logger，无需过多配置就可以使用。相应使用方法：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;This is a debug message&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;This is an info message&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;This is a warning message&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;This is an error message&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s">&#39;This is a critical message&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>程序输出类似如下：</p>
+<div class="highlight"><pre><span class="n">WARNING</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">This</span> <span class="k">is</span> <span class="n">a</span> <span class="n">warning</span> <span class="n">message</span>
+<span class="n">ERROR</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">This</span> <span class="k">is</span> <span class="n">an</span> <span class="n">error</span> <span class="n">message</span>
+<span class="n">CRITICAL</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">This</span> <span class="k">is</span> <span class="n">a</span> <span class="n">critical</span> <span class="n">message</span>
+</pre></div>
+
+
+<p>输出的内容首先的日志级别，然后名字接着是日志内容，通过:分隔，该格式为默认格式，当然我们也可以进行自定义，例如加入时间戳，行号和其他信息</p>
+<p>注意这里debug()和info()并没有输出，这是因为默认logging模块仅配置了WARNING以上级别的信息会记录。我们可以通过手动配置的方式来更改级别。你还可以自己定义日志级别，但是通常不建议这么做，因为这样有可能会搞乱在使用的第三方库的日志行为。</p>
+<h2>基本配置</h2>
+<p>我们可以使用basicConfig(**kwargs)方法来配置logging:</p>
+<blockquote>
+<p>你可能注意到logging模块里面的命名没有遵循PEP8指南使用了camelCase命名方式，这是因为它来源于Log4j，一个Java日志工具。为保证向后兼容，所以没有对命名进行调整。</p>
+</blockquote>
+<p>basicConfig()常用的参数有：</p>
+<ul>
+<li>level: 设置logger日志级别</li>
+<li>filename: 指定文件</li>
+<li>filemode: 打开filename格式，默认是a,也就是追加</li>
+<li>format: 日志信息的格式</li>
+</ul>
+<p>通过使用level参数，我们可以设置哪些级别日志需要记录下。可以通过传递预定义的常量参数，例如：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;This will get logged&#39;</span><span class="p">)</span>
+
+
+<span class="n">DEBUG</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">This</span> <span class="n">will</span> <span class="n">get</span> <span class="n">logged</span>
+</pre></div>
+
+
+<p>所有的DEBUG以上事件都会被记录。</p>
+<p>同样，想要将日志输入到文件而不是控制台，我们需要使用filename和filemode参数，还可以设置format参数来设定输出格式。以下例子三个参数的使用方式：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s">&#39;app.log&#39;</span><span class="p">,</span> <span class="n">filemode</span><span class="o">=</span><span class="s">&#39;w&#39;</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%(name)s</span><span class="s"> - </span><span class="si">%(levelname)s</span><span class="s"> - </span><span class="si">%(message)s</span><span class="s">&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;This will get logged to a file&#39;</span><span class="p">)</span>
+
+<span class="n">root</span> <span class="o">-</span> <span class="n">ERROR</span> <span class="o">-</span> <span class="n">This</span> <span class="n">will</span> <span class="n">get</span> <span class="n">logged</span> <span class="n">to</span> <span class="n">a</span> <span class="nb">file</span>
+</pre></div>
+
+
+<p>日志信息将会按该方式写入到app.log文件中，这里filemode设置为w，所以每次basicConfig()执行都会以"write mode"形式打开，每次运行程序日志文件都会被重写。默认的参数为'a', 也就是追加模式。</p>
+<p>你还可以自定义更多的参数到basicConfig()来配置Logger,查看<a href="https://docs.python.org/3/library/logging.html#logging.basicConfig">文档</a>了解更多参数。</p>
+<p>要注意basicConfig()只可以配置一次。</p>
+<p>debug(), info(), warning(), error()和critical()函数如果在之前没有调用basicConfig(),那么它们会自动调用无参的basicConfig()，所以在调用这些函数后在执行basicConfig()是无法生效的。</p>
+<p>默认的basicConfig()配置logger按如下格式输出到控制台：</p>
+<div class="highlight"><pre><span class="n">ERROR</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">This</span> <span class="k">is</span> <span class="n">an</span> <span class="n">error</span> <span class="n">message</span>
+</pre></div>
+
+
+<h2>格式化输出</h2>
+<p>程序中你可以传递任何字符串作为日志信息输出，还存在一些默认的元素可以定义在格式中在日志时记录。如果想记录进程ID，日志级别和内容，你可以这么做：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%(process)d</span><span class="s">-</span><span class="si">%(levelname)s</span><span class="s">-</span><span class="si">%(message)s</span><span class="s">&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;This is a Warning&#39;</span><span class="p">)</span>
+
+
+<span class="mi">18472</span><span class="o">-</span><span class="n">WARNING</span><span class="o">-</span><span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="ne">Warning</span>
+</pre></div>
+
+
+<p>format可以传递LogRecord属性。所有的可选参数可以在<a href="https://docs.python.org/3/library/logging.html#logrecord-attributes">这里</a>找到。</p>
+<p>这是另一个例子，加入了日期和时间：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%(asctime)s</span><span class="s"> - </span><span class="si">%(message)s</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s">&#39;Admin logged in&#39;</span><span class="p">)</span>
+
+
+<span class="mi">2018</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">11</span> <span class="mi">20</span><span class="p">:</span><span class="mi">12</span><span class="p">:</span><span class="mo">06</span><span class="p">,</span><span class="mi">288</span> <span class="o">-</span> <span class="n">Admin</span> <span class="n">logged</span> <span class="ow">in</span>
+</pre></div>
+
+
+<p>%(asctime)s加入了LogRecord创建时间，可以通过datefmt属性对时间格式进行修改，它的定义方式和datetime模块使用方式一样，例如time.strftime()：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">basicConfig</span><span class="p">(</span><span class="n">format</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%(asctime)s</span><span class="s"> - </span><span class="si">%(message)s</span><span class="s">&#39;</span><span class="p">,</span> <span class="n">datefmt</span><span class="o">=</span><span class="s">&#39;</span><span class="si">%d</span><span class="s">-%b-%y %H:%M:%S&#39;</span><span class="p">)</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;Admin logged out&#39;</span><span class="p">)</span>
+
+
+
+<span class="mi">12</span><span class="o">-</span><span class="n">Jul</span><span class="o">-</span><span class="mi">18</span> <span class="mi">20</span><span class="p">:</span><span class="mi">53</span><span class="p">:</span><span class="mi">19</span> <span class="o">-</span> <span class="n">Admin</span> <span class="n">logged</span> <span class="n">out</span>
+</pre></div>
+
+
+<p>更多详细参数描述请参考<a href="https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior">文档</a></p>
+<h2>记录变量</h2>
+<p>大部分场景下，你想将应用的动态信息放入到日志中。你已经知道logging方法接收的是字符串参数，简单的方式就是将变量转换为字符串在单独的行记录，但是最直接方式是使用格式化字符串将变量追加进去，例如：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="s">&#39;John&#39;</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%s</span><span class="s"> raised an error&#39;</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+
+
+<span class="n">ERROR</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">John</span> <span class="n">raised</span> <span class="n">an</span> <span class="n">error</span>
+</pre></div>
+
+
+<p>输出的内容就包含了变量内容了。</p>
+<p>你可以使用任意的格式化风格，Python3.6引入的f-strings提供了更加方便的插值方式：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">name</span> <span class="o">=</span> <span class="s">&#39;John&#39;</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">f</span><span class="s">&#39;{name} raised an error&#39;</span><span class="p">)</span>
+
+
+<span class="n">ERROR</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="n">John</span> <span class="n">raised</span> <span class="n">an</span> <span class="n">error</span>
+</pre></div>
+
+
+<h2>捕获堆栈信息</h2>
+<p>logging模块还允许你加入应用程序的堆栈信息，通过设置exc_info参数为True来实现：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="k">try</span><span class="p">:</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&quot;Exception occurred&quot;</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+
+<span class="n">ERROR</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="ne">Exception</span> <span class="n">occurred</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="n">File</span> <span class="s">&quot;exceptions.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">6</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.2</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+
+
+<p>如果exc_info设置为True，以上输出内容就会包含一场信息，在实际场景中，可能不是简单的ZeroDivisionError，想象一下如果在复杂代码中调试一个错误，看到如下输出：</p>
+<div class="highlight"><pre><span class="n">ERROR</span><span class="o">:</span><span class="n">root</span><span class="o">:</span><span class="n">Exception</span> <span class="n">occurred</span>
+</pre></div>
+
+
+<p>快捷方式：如果你需要从异常处理中记录日志，你可以直接使用logging.exception()方法，执行该方法就好似logging.error(exc_info=True)，但因为这里始终会将异常信息记录，所以在一查过年处理时推荐使用。</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">try</span><span class="p">:</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="n">logging</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s">&quot;Exception occurred&quot;</span><span class="p">)</span>
+
+
+<span class="n">ERROR</span><span class="p">:</span><span class="n">root</span><span class="p">:</span><span class="ne">Exception</span> <span class="n">occurred</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="n">File</span> <span class="s">&quot;exceptions.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">6</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
+<span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+<span class="p">[</span><span class="n">Finished</span> <span class="ow">in</span> <span class="mf">0.2</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+
+
+<p>使用logging.exception()会以ERROR级别记录，如果你想换成其他的级别的话就执行使用其他方法，如debug()或者critcal()，记得加入exc_info为True的参数。</p>
+<h2>类和函数</h2>
+<p>目前，我们已经认识的名为root的logger。你也可以定义（也应该）你自己的logger，尤其是你的应用存在多个模块时。我们来看看这个模块中的类和函数。</p>
+<p>logging模块经常使用的类有：</p>
+<ul>
+<li>Logger: logger</li>
+<li>LogRecord: Loggers自动创建LogRecord对象，里面包含了相关参数，例如logger的名字，函数，行号，内容等等。</li>
+<li>Handler: Handlers设置LogRecord需要输出的目的，例如控制台或者文件。Handler是StreamHandler, FileHandler,SMTPHandler, HTTPHandler等的基类。这些子类将日志输出到相应的地方，如sys.stdout或者硬盘。</li>
+<li>Formatter: 定义日志记录的内容，包含的一些参数信息</li>
+</ul>
+<p>大部分我们使用的Logger类，使用模块级别函数进行初始化，使用相同名字多次调用getLogger()将会返回相同Logger对象，这样节省我们每次都需要传递logger对象：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s">&#39;example_logger&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;This is a warning&#39;</span><span class="p">)</span>
+
+
+<span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">warning</span>
+</pre></div>
+
+
+<p>这里自定义logger为example_logger，不像root logger，自定义logger的名字并没有在日志格式中配置，配置了logger名字在日志格式中将会得到如下内容：</p>
+<div class="highlight"><pre><span class="n">WARNING</span><span class="o">:</span><span class="n">example_logger</span><span class="o">:</span><span class="n">This</span> <span class="k">is</span> <span class="n">a</span> <span class="n">warning</span>
+</pre></div>
+
+
+<p>不想root logger,自定义logger不能通过basicConfig()配置，我们需要使用Handlers和Formatters进行配置。</p>
+<blockquote>
+<p>通常建议传递模块的__name__参数作为getLogger()参数的名称</p>
+</blockquote>
+<h2>使用Handlers</h2>
+<p>Handlers允许你定义自定义logger输出目的，你可以设置为标准输出流，一个文件，HTTP或者使用SMTP发送邮件。</p>
+<p>自定的logger可以包含多个handlers, 意味着你可以将日志同时写入文件及发送到邮箱</p>
+<p>和logger一样，你也可以配置handlers处理的日志级别。这在你想在logger使用多个handlers，而不同handlers又想处理不同的级别非常有用。例如，你想将WARNING级别的日志输出到控制台，但是邮箱将ERROR级别的日志记录到文件中，如下:</p>
+<div class="highlight"><pre><span class="c"># logging_example.py</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="c"># Create a custom logger</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="c"># Create handlers</span>
+<span class="n">c_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">StreamHandler</span><span class="p">()</span>
+<span class="n">f_handler</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">FileHandler</span><span class="p">(</span><span class="s">&#39;file.log&#39;</span><span class="p">)</span>
+<span class="n">c_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">WARNING</span><span class="p">)</span>
+<span class="n">f_handler</span><span class="o">.</span><span class="n">setLevel</span><span class="p">(</span><span class="n">logging</span><span class="o">.</span><span class="n">ERROR</span><span class="p">)</span>
+
+<span class="c"># Create formatters and add it to handlers</span>
+<span class="n">c_format</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%(name)s</span><span class="s"> - </span><span class="si">%(levelname)s</span><span class="s"> - </span><span class="si">%(message)s</span><span class="s">&#39;</span><span class="p">)</span>
+<span class="n">f_format</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">Formatter</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%(asctime)s</span><span class="s"> - </span><span class="si">%(name)s</span><span class="s"> - </span><span class="si">%(levelname)s</span><span class="s"> - </span><span class="si">%(message)s</span><span class="s">&#39;</span><span class="p">)</span>
+<span class="n">c_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">c_format</span><span class="p">)</span>
+<span class="n">f_handler</span><span class="o">.</span><span class="n">setFormatter</span><span class="p">(</span><span class="n">f_format</span><span class="p">)</span>
+
+<span class="c"># Add handlers to the logger</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">c_handler</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">addHandler</span><span class="p">(</span><span class="n">f_handler</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s">&#39;This is a warning&#39;</span><span class="p">)</span>
+<span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s">&#39;This is an error&#39;</span><span class="p">)</span>
+
+
+
+<span class="n">__main__</span> <span class="o">-</span> <span class="n">WARNING</span> <span class="o">-</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">warning</span>
+<span class="n">__main__</span> <span class="o">-</span> <span class="n">ERROR</span> <span class="o">-</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">an</span> <span class="n">error</span>
+</pre></div>
+
+
+<h2>其他一些配置方法</h2>
+<p>你也可以通过创建一个配置文件或者字典的方式来进行配置，分别使用fileConfig()或者dictConfig。</p>
+<p>文件配置示例如下：</p>
+<div class="highlight"><pre><span class="k">[loggers]</span>
+<span class="na">keys</span><span class="o">=</span><span class="s">root,sampleLogger</span>
+
+<span class="k">[handlers]</span>
+<span class="na">keys</span><span class="o">=</span><span class="s">consoleHandler</span>
+
+<span class="k">[formatters]</span>
+<span class="na">keys</span><span class="o">=</span><span class="s">sampleFormatter</span>
+
+<span class="k">[logger_root]</span>
+<span class="na">level</span><span class="o">=</span><span class="s">DEBUG</span>
+<span class="na">handlers</span><span class="o">=</span><span class="s">consoleHandler</span>
+
+<span class="k">[logger_sampleLogger]</span>
+<span class="na">level</span><span class="o">=</span><span class="s">DEBUG</span>
+<span class="na">handlers</span><span class="o">=</span><span class="s">consoleHandler</span>
+<span class="na">qualname</span><span class="o">=</span><span class="s">sampleLogger</span>
+<span class="na">propagate</span><span class="o">=</span><span class="s">0</span>
+
+<span class="k">[handler_consoleHandler]</span>
+<span class="na">class</span><span class="o">=</span><span class="s">StreamHandler</span>
+<span class="na">level</span><span class="o">=</span><span class="s">DEBUG</span>
+<span class="na">formatter</span><span class="o">=</span><span class="s">sampleFormatter</span>
+<span class="na">args</span><span class="o">=</span><span class="s">(sys.stdout,)</span>
+
+<span class="k">[formatter_sampleFormatter]</span>
+<span class="na">format</span><span class="o">=</span><span class="s">%(asctime)s - %(name)s - %(levelname)s - %(message)s</span>
+</pre></div>
+
+
+<p>在以上文件中，有两个loggers，一个handler和一个formatter，使用名字加下划线的命名方式建立联系。</p>
+<p>要夹在该配置文件，需要使用fileConfig():</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">logging.config</span>
+
+<span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">fileConfig</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s">&#39;file.conf&#39;</span><span class="p">,</span> <span class="n">disable_existing_loggers</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+<span class="c"># Get the logger specified in the file</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;This is a debug message&#39;</span><span class="p">)</span>
+
+
+
+<span class="mi">2018</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">13</span> <span class="mi">13</span><span class="p">:</span><span class="mi">57</span><span class="p">:</span><span class="mi">45</span><span class="p">,</span><span class="mi">467</span> <span class="o">-</span> <span class="n">__main__</span> <span class="o">-</span> <span class="n">DEBUG</span> <span class="o">-</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">debug</span> <span class="n">message</span>
+</pre></div>
+
+
+<p>通过传递配置文件的路径作为参数给到fileConfig()方法，disable_existing_logger参数用来指示是否禁用已经存在的loggers。</p>
+<p>下面是使用YAML格式：</p>
+<div class="highlight"><pre><span class="n">version</span><span class="o">:</span> <span class="mi">1</span>
+<span class="n">formatters</span><span class="o">:</span>
+<span class="n">simple</span><span class="o">:</span>
+    <span class="n">format</span><span class="o">:</span> <span class="s1">&#39;%(asctime)s - %(name)s - %(levelname)s - %(message)s&#39;</span>
+<span class="n">handlers</span><span class="o">:</span>
+<span class="n">console</span><span class="o">:</span>
+    <span class="kd">class</span><span class="o">:</span> <span class="n">logging</span><span class="o">.</span><span class="na">StreamHandler</span>
+    <span class="n">level</span><span class="o">:</span> <span class="n">DEBUG</span>
+    <span class="n">formatter</span><span class="o">:</span> <span class="n">simple</span>
+    <span class="n">stream</span><span class="o">:</span> <span class="n">ext</span><span class="o">://</span><span class="n">sys</span><span class="o">.</span><span class="na">stdout</span>
+<span class="n">loggers</span><span class="o">:</span>
+<span class="n">sampleLogger</span><span class="o">:</span>
+    <span class="n">level</span><span class="o">:</span> <span class="n">DEBUG</span>
+    <span class="n">handlers</span><span class="o">:</span> <span class="o">[</span><span class="n">console</span><span class="o">]</span>
+    <span class="n">propagate</span><span class="o">:</span> <span class="n">no</span>
+<span class="n">root</span><span class="o">:</span>
+<span class="n">level</span><span class="o">:</span> <span class="n">DEBUG</span>
+<span class="n">handlers</span><span class="o">:</span> <span class="o">[</span><span class="n">console</span><span class="o">]</span>
+</pre></div>
+
+
+<p>以下是如何从yaml文件加载配置的代码示例：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">logging.config</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;config.yaml&#39;</span><span class="p">,</span> <span class="s">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+    <span class="n">logging</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">dictConfig</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s">&#39;This is a debug message&#39;</span><span class="p">)</span>
+
+
+<span class="mi">2018</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">13</span> <span class="mi">14</span><span class="p">:</span><span class="mo">05</span><span class="p">:</span><span class="mo">03</span><span class="p">,</span><span class="mi">766</span> <span class="o">-</span> <span class="n">__main__</span> <span class="o">-</span> <span class="n">DEBUG</span> <span class="o">-</span> <span class="n">This</span> <span class="ow">is</span> <span class="n">a</span> <span class="n">debug</span> <span class="n">message</span>
+</pre></div>
+
+
+<h2>保持冷静以及查看日志</h2>
+<p>logging模块相当灵活。它设计非常实用，开箱即用。你可以在小项目中使用基础日志，你也可以在大的项目中创建你自己的日志级别，handler类。</p>
+<p>如果你还没有在项目中使用logging，现在就是一个好的开始。使用得当，logging将会在开发过程减少你很多麻烦，辅助你将你的应用提高到下一个等级。</p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/pythonzhong-loggingmo-kuai.html&text=Python中Logging模块&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/pythonzhong-loggingmo-kuai.html&t=Python中Logging模块"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/pythonzhong-loggingmo-kuai.html&title=Python中Logging模块" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

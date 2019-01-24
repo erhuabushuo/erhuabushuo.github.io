@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>《The Flask Mega-Tutorial》中译文：第五部分、用户登陆</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/the-flask-mega-tutorial-zhong-yi-wen-di-wu-bu-fen-yong-hu-deng-lu.html">
+<meta name="twitter:title" content="疯人院主任 ~ 《The Flask Mega-Tutorial》中译文：第五部分、用户登陆">
+<meta name="twitter:description" content="来自Miga的Flask新版系列教程，翻译水平有限，大部分按自己理解进行翻译，内容有删减. 散列密码 在第四部分，我们给user模型提供了一个password_hash字段，目前我们还没有使用它。该字段用来存放散列过的用户密码，在登陆时与用户输入的密码进行认证。hash密码原理较为复杂，不过存在很多容易使用的库来解决该问题。 散列密码其中之一的库就是Werkzeug所提供，你可能在使用pip安装Flask的时候也看到它，由于它是该框架依赖的核心库之一，Werkzeug已经安装到了你的虚拟环境中。以下Python shell会话演示了如何对密码进行散列： &gt;&gt;&gt; from werkzeug.security import generate_password_hash &gt;&gt;&gt; hash = generate_password_hash(&#39;foobar&#39;) &gt;&gt;&gt; hash &#39;pbkdf2:sha256:50000$l9VORxzn$f963710c13a4cc5eb7fee4b36b800e8184dab60c58c077811a0af74f868c9c92&#39; 在本例中，密码foobar被转换为了使用加密算法生成的一串编码字符串，且不能反转操作，也就是如果密码被他人盗走也不能获取到原始密码。还有就是对相同明文进行加密会得到不同结果，所以也就不能通过加密后结果推断两个用户密码是否一致。 验证过程是使用Werkzeug的第二个方法： &gt;&gt;&gt; from werkzeug.security import check_password_hash &gt;&gt;&gt; check_password_hash(hash, &#39;foobar&#39;) True &gt;&gt;&gt; check_password_hash(hash ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ 《The Flask Mega-Tutorial》中译文：第五部分、用户登陆" />
+<meta property="og:description" content="来自Miga的Flask新版系列教程，翻译水平有限，大部分按自己理解进行翻译，内容有删减. 散列密码 在第四部分，我们给user模型提供了一个password_hash字段，目前我们还没有使用它。该字段用来存放散列过的用户密码，在登陆时与用户输入的密码进行认证。hash密码原理较为复杂，不过存在很多容易使用的库来解决该问题。 散列密码其中之一的库就是Werkzeug所提供，你可能在使用pip安装Flask的时候也看到它，由于它是该框架依赖的核心库之一，Werkzeug已经安装到了你的虚拟环境中。以下Python shell会话演示了如何对密码进行散列： &gt;&gt;&gt; from werkzeug.security import generate_password_hash &gt;&gt;&gt; hash = generate_password_hash(&#39;foobar&#39;) &gt;&gt;&gt; hash &#39;pbkdf2:sha256:50000$l9VORxzn$f963710c13a4cc5eb7fee4b36b800e8184dab60c58c077811a0af74f868c9c92&#39; 在本例中，密码foobar被转换为了使用加密算法生成的一串编码字符串，且不能反转操作，也就是如果密码被他人盗走也不能获取到原始密码。还有就是对相同明文进行加密会得到不同结果，所以也就不能通过加密后结果推断两个用户密码是否一致。 验证过程是使用Werkzeug的第二个方法： &gt;&gt;&gt; from werkzeug.security import check_password_hash &gt;&gt;&gt; check_password_hash(hash, &#39;foobar&#39;) True &gt;&gt;&gt; check_password_hash(hash ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/the-flask-mega-tutorial-zhong-yi-wen-di-wu-bu-fen-yong-hu-deng-lu.html" rel="bookmark" title="Permalink to 《The Flask Mega-Tutorial》中译文：第五部分、用户登陆">《The Flask Mega-Tutorial》中译文：第五部分、用户登陆</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>二 24 四月 2018<br />
+    <b>In: </b><a href="/category/flask.html" rel="bookmark" title="Permalink to Flask">Flask</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>来自Miga的Flask新版系列教程，翻译水平有限，大部分按自己理解进行翻译，内容有删减.</p>
+<h2>散列密码</h2>
+<p>在第四部分，我们给user模型提供了一个password_hash字段，目前我们还没有使用它。该字段用来存放散列过的用户密码，在登陆时与用户输入的密码进行认证。hash密码原理较为复杂，不过存在很多容易使用的库来解决该问题。</p>
+<p>散列密码其中之一的库就是Werkzeug所提供，你可能在使用pip安装Flask的时候也看到它，由于它是该框架依赖的核心库之一，Werkzeug已经安装到了你的虚拟环境中。以下Python shell会话演示了如何对密码进行散列：</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">werkzeug.security</span> <span class="kn">import</span> <span class="n">generate_password_hash</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">hash</span> <span class="o">=</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="s">&#39;foobar&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="nb">hash</span>
+<span class="s">&#39;pbkdf2:sha256:50000$l9VORxzn$f963710c13a4cc5eb7fee4b36b800e8184dab60c58c077811a0af74f868c9c92&#39;</span>
+</pre></div>
+
+
+<p>在本例中，密码foobar被转换为了使用加密算法生成的一串编码字符串，且不能反转操作，也就是如果密码被他人盗走也不能获取到原始密码。还有就是对相同明文进行加密会得到不同结果，所以也就不能通过加密后结果推断两个用户密码是否一致。</p>
+<p>验证过程是使用Werkzeug的第二个方法：</p>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">werkzeug.security</span> <span class="kn">import</span> <span class="n">check_password_hash</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">check_password_hash</span><span class="p">(</span><span class="nb">hash</span><span class="p">,</span> <span class="s">&#39;foobar&#39;</span><span class="p">)</span>
+<span class="bp">True</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">check_password_hash</span><span class="p">(</span><span class="nb">hash</span><span class="p">,</span> <span class="s">&#39;barfoo&#39;</span><span class="p">)</span>
+<span class="bp">False</span>
+</pre></div>
+
+
+<p>验证函数接收的第一个参数为之前生成的加密字符串，还有用户登录时填入的明文密码。函数返回True说明密码匹配，反之匹配失败。</p>
+<p>整个密码加密和验证过程我们可以封装到用户模型里头：</p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">werkzeug.security</span> <span class="kn">import</span> <span class="n">generate_password_hash</span><span class="p">,</span> <span class="n">check_password_hash</span>
+
+<span class="c">#...</span>
+
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c">#...</span>
+
+    <span class="k">def</span> <span class="nf">set_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">password_hash</span> <span class="o">=</span> <span class="n">generate_password_hash</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">check_password</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">check_password_hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">password_hash</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+</pre></div>
+
+
+<p>通过这两个方法，用户对象现在可以存入安全密码进行认证,我们甚至不需要存储原始密码。以下是使用这些方法的例子：</p>
+<div class="highlight"><pre>(venv) $ flask shell
+Python 3.6.3 (default, Oct  3 2017, 21:45:48) 
+[GCC 7.2.0] on linux
+App: app
+Instance: /home/aidan/workbench/microblog/instance
+&gt;&gt;&gt; u = User(username=&#39;susan&#39;, email=&#39;susan@example.com&#39;)
+&gt;&gt;&gt; u.set_password(&quot;mypassword&quot;)
+&gt;&gt;&gt; u.check_password(&quot;anotherpassword&quot;)
+False
+&gt;&gt;&gt; u.check_password(&quot;mypassword&quot;)
+True
+</pre></div>
+
+
+<h2>介绍Flask-Login</h2>
+<p>在本章我将给你推荐一个非常流行名为<a href="https://flask-login.readthedocs.io/">Flask-Login</a>的Flawsk扩展。该扩展管理着用户登录状态。提供诸如用户登录应用程序，或者将存储的用户跳转到不同页面的功能。它也提供了“记住我”的功能允许用户在关闭浏览器的情况下依然保持登录状态。要继续进行本章，我们先要安装Flask-Login到虚拟环境里头：</p>
+<div class="highlight"><pre>(venv) $ pip install flask-login
+</pre></div>
+
+
+<p>就如其他扩展，Flask-Login需要在应用程序app/__init__.py恰当的位置进行创建和初始化，如下：</p>
+<p><strong>app/__init__.py</strong></p>
+<div class="highlight"><pre><span class="c"># ...</span>
+<span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">LoginManager</span>
+
+<span class="n">app</span> <span class="o">=</span> <span class="n">Flask</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+<span class="c"># ...</span>
+<span class="n">login</span> <span class="o">=</span> <span class="n">LoginManager</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+<span class="c"># ...</span>
+</pre></div>
+
+
+<h2>为Flask-Login准备好用户模型</h2>
+<p>Flask-Login扩展与应用程序的用户模型共同协作，需要某些具体的属性和方法实现。这种方式非常漂亮，因为因为一旦这些必要条件放入到模型后，Flask-Login就不需要做其他工作了，就目前例子来讲，它工作在用户模型里头就能使用各种数据库引擎了。</p>
+<p>四个必须实现相如下：</p>
+<ul>
+<li>is_authenticated: 如果用户是有效身份的话该属性返回True,否则返回False。</li>
+<li>is_active: 如果用户是激活状态返回True，否则返回False。</li>
+<li>is_anonymous: 如果是普通用户返回False，如果是匿名用户返回True</li>
+<li>get_id():返回用户唯一标识字符串（如果是Python2需要返回unicode编码）</li>
+</ul>
+<p>我可以很简单的实现这四个项目，但是由于非常通用，Flask-Login提供了一个基座UserMixin的mixin类，它包含了大部分用户类的通用实现。下面是如下将mixin类加入到我们的模型中：</p>
+<p><strong>app/models.py</strong></p>
+<div class="highlight"><pre><span class="c"># ...</span>
+<span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">UserMixin</span>
+
+<span class="k">class</span> <span class="nc">User</span><span class="p">(</span><span class="n">UserMixin</span><span class="p">,</span> <span class="n">db</span><span class="o">.</span><span class="n">Model</span><span class="p">):</span>
+    <span class="c"># ...</span>
+</pre></div>
+
+
+<h2>用户加载函数</h2>
+<p>Flask-Login通过存放在session里的用户的唯一标识符来追踪登陆用户，session是用来为每个应用程序访问用户提供的存储空间。每次登陆用户跳转到新的页面时，Flask-Login将会从session中获取用户的ID，然后将用户加入到内存中。</p>
+<p>因为Flask-Login根本就不知道数据库，它需要应用程序来帮它加载用户。就因为这个原因，扩展期望应用程序配置用户加载函数，通过传递的ID参数来加载到具体用户。我们将该函数添加到app/models.py模块中：</p>
+<p><strong>app/models.py</strong></p>
+<div class="highlight"><pre><span class="kn">from</span> <span class="nn">app</span> <span class="kn">import</span> <span class="n">login</span>
+<span class="c"># ...</span>
+
+<span class="nd">@login.user_loader</span>
+<span class="k">def</span> <span class="nf">load_user</span><span class="p">(</span><span class="nb">id</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">id</span><span class="p">))</span>
+</pre></div>
+
+
+<p>用户加载器是通过@login.user_loader装饰器进行注册的。Flask-Login传递给函数的参数id为字符串类型，所以数据库在需要使用数值类型ID时需要对字符串进行转换。</p>
+<h2>用户登陆</h2>
+<p>让我们再次来看看登陆视图函数，之前我们仅仅是通过虚拟一个用户来实现用户登陆，最后使用<strong>flash()</strong>输出提示信息。现在我们已经可以通过数据库来生成并验证hash密码，让我们来继续完善它。</p>
+<p><strong>app/routes.py</strong></p>
+<div class="highlight"><pre><span class="c"># ...</span>
+<span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">current_user</span><span class="p">,</span> <span class="n">login_user</span>
+<span class="kn">from</span> <span class="nn">app.models</span> <span class="kn">import</span> <span class="n">User</span>
+
+<span class="c"># ...</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/login&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s">&#39;GET&#39;</span><span class="p">,</span> <span class="s">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span><span class="p">():</span>
+    <span class="k">if</span> <span class="n">current_user</span><span class="o">.</span><span class="n">is_authenticated</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&#39;index&#39;</span><span class="p">))</span>
+    <span class="n">form</span> <span class="o">=</span> <span class="n">LoginForm</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">form</span><span class="o">.</span><span class="n">validate_on_submit</span><span class="p">():</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">query</span><span class="o">.</span><span class="n">filter_by</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">username</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">user</span><span class="o">.</span><span class="n">check_password</span><span class="p">(</span><span class="n">form</span><span class="o">.</span><span class="n">password</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+            <span class="n">flash</span><span class="p">(</span><span class="s">&#39;Invalid username or password&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&#39;login&#39;</span><span class="p">))</span>
+        <span class="n">login_user</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">remember</span><span class="o">=</span><span class="n">form</span><span class="o">.</span><span class="n">remember_me</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&#39;index&#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s">&#39;login.html&#39;</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s">&#39;Sign In&#39;</span><span class="p">,</span> <span class="n">form</span><span class="o">=</span><span class="n">form</span><span class="p">)</span>
+</pre></div>
+
+
+<p>login()函数处理了一个奇怪场景，想象如果你已经登陆了，然后访问到/login地址。显然就不需要做多余的登陆等做了，所以这里我通过从Flask-Login提供的current_user变量来获取当前请求用户对象。该值可以是从数据库获取的user对象（Flask-Login通过上面用户加载函数回调所获取的），或者当用户没有登陆时匿名用户对象。还记得在使用Flask-Login用户对象所必须实现的属性吗？其中之一就是is_authenticated，用户获取用户是否登陆。当用户已经登陆时，我们简单跳转到首页。</p>
+<p>我们替换掉了之前flash()输出信息，而是使用实际登陆功能。第一步是从数据库加载用户。用户名通过提交的表单获取，所以这里通过用户来获取到数据库记录。这里我们使用了SQLAlchemy的filter_by()方法。获取到的结果是仅匹配传入的用户名的结果。由于我们这里能预测到只会返回一条或者零条结果。我们指定使用first()，在存在结果时仅返回一个用户对象，没有的话就返回None。在第四章我们已经用了all()方法，该结果会返回一个类似列表的结果集。first()方法仅在你只需要一条结果时非常有用。</p>
+<p>如果根据提供的用户名返回了匹配结果，我们可以进一步验证密码是否也是有效的。这里通过之前定义的check_password()方法实现。它将会拿存入的hash密码和用户输入密码进行hash匹配。所以我们这里可能会出现两种失败可能：用户名无效，或者密码无效。这两个错误我都统一使用flash输出一条信息，然后重新重定向到登陆页面以便用户可以再次尝试。</p>
+<p>如果用户名和密码都匹配成功，我们就可以使用Flask-Login的login_user()函数了。该函数会将用户标识为登陆状态，这样接下来访问任何视图都可以通过current_user变量来获取到该用户。</p>
+<p>登陆成功后，我将登陆用户引导到首页。</p>
+<h2>用户登出</h2>
+<p>当然我也需要给用户登出的功能。通过使用Flask-Login的logout_user()函数，下面是实现的视图函数：</p>
+<p><strong>app/routes.py</strong></p>
+<div class="highlight"><pre><span class="c"># ...</span>
+<span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">logout_user</span>
+
+<span class="c"># ...</span>
+
+<span class="nd">@app.route</span><span class="p">(</span><span class="s">&#39;/logout&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">logout</span><span class="p">():</span>
+    <span class="n">logout_user</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s">&#39;index&#39;</span><span class="p">))</span>
+</pre></div>
+
+
+<p>要提供这些链接给用户，我可以在用户未登陆的时候提供登陆链接，登陆完切换成登出链接。我们可以通过在base.html模板使用条件语句来实现：</p>
+<p><strong>app/templates/base.html</strong></p>
+<div class="highlight"><pre><span class="nt">&lt;div&gt;</span>
+    Microblog:
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;index&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>Home<span class="nt">&lt;/a&gt;</span>
+    <span class="cp">{%</span> <span class="k">if</span> <span class="nv">current_user.is_anonymous</span> <span class="cp">%}</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;login&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>Login<span class="nt">&lt;/a&gt;</span>
+    <span class="cp">{%</span> <span class="k">else</span> <span class="cp">%}</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;</span><span class="cp">{{</span> <span class="nv">url_for</span><span class="o">(</span><span class="s1">&#39;logout&#39;</span><span class="o">)</span> <span class="cp">}}</span><span class="s">&quot;</span><span class="nt">&gt;</span>Logout<span class="nt">&lt;/a&gt;</span>
+    <span class="cp">{%</span> <span class="k">endif</span> <span class="cp">%}</span>
+<span class="nt">&lt;/div&gt;</span>
+</pre></div>
+
+
+<p>is_anonymouse属性是Flask-Login通过UserMixin类加入的。current_user.is_anonymous在用户未登陆时返回结果为True。</p>
+<h2>强制用户登陆</h2>
+<p>Flask-Login提供了一个非常有用的特性，强制用户登陆状态才可以访问某应用程序视图。如果用户在未登陆状态下访问受保护的页面时，Flask-Login自动重定向到登陆表单，只在用户成功登陆后再次返回访问该视图。</p>
+<p>为了使用该特性，Flask-Logi需要知道使用哪个视图函数处理登陆，我们可以把它加入到app/__init__.py文件里：</p>
+<div class="highlight"><pre># ...
+login = LoginManager(app)
+login.login_view = &#39;login&#39;
+</pre></div>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/the-flask-mega-tutorial-zhong-yi-wen-di-wu-bu-fen-yong-hu-deng-lu.html&text=《The Flask Mega-Tutorial》中译文：第五部分、用户登陆&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/the-flask-mega-tutorial-zhong-yi-wen-di-wu-bu-fen-yong-hu-deng-lu.html&t=《The Flask Mega-Tutorial》中译文：第五部分、用户登陆"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/the-flask-mega-tutorial-zhong-yi-wen-di-wu-bu-fen-yong-hu-deng-lu.html&title=《The Flask Mega-Tutorial》中译文：第五部分、用户登陆" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

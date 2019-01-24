@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>Click: 命令行工具神器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/click-ming-ling-xing-gong-ju-shen-qi.html">
+<meta name="twitter:title" content="疯人院主任 ~ Click: 命令行工具神器">
+<meta name="twitter:description" content="Click是一个Python用来快速实现命令行应用程序的包，主要优势表现在以下三点： 任意嵌套命令 自动生成帮助页 自动运行时lazy加载子命令 示例程序： import click @click.command() @click.option(&#39;--count&#39;, default=1, help=&#39;Number of greetings.&#39;) @click.option(&#39;--name&#39;, prompt=&#39;Your name&#39;, help=&#39;The person to greet.&#39;) def hello(count, name): &#34;&#34;&#34;Simple program that greets NAME for a total of COUNT times.&#34;&#34;&#34; for x in range(count ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ Click: 命令行工具神器" />
+<meta property="og:description" content="Click是一个Python用来快速实现命令行应用程序的包，主要优势表现在以下三点： 任意嵌套命令 自动生成帮助页 自动运行时lazy加载子命令 示例程序： import click @click.command() @click.option(&#39;--count&#39;, default=1, help=&#39;Number of greetings.&#39;) @click.option(&#39;--name&#39;, prompt=&#39;Your name&#39;, help=&#39;The person to greet.&#39;) def hello(count, name): &#34;&#34;&#34;Simple program that greets NAME for a total of COUNT times.&#34;&#34;&#34; for x in range(count ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/click-ming-ling-xing-gong-ju-shen-qi.html" rel="bookmark" title="Permalink to Click: 命令行工具神器">Click: 命令行工具神器</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>二 04 十二月 2018<br />
+    <b>In: </b><a href="/category/python.html" rel="bookmark" title="Permalink to Python">Python</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>Click是一个Python用来快速实现命令行应用程序的包，主要优势表现在以下三点：</p>
+<ul>
+<li>任意嵌套命令</li>
+<li>自动生成帮助页</li>
+<li>自动运行时lazy加载子命令</li>
+</ul>
+<p>示例程序：</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">click</span>
+
+<span class="nd">@click.command</span><span class="p">()</span>
+<span class="nd">@click.option</span><span class="p">(</span><span class="s">&#39;--count&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;Number of greetings.&#39;</span><span class="p">)</span>
+<span class="nd">@click.option</span><span class="p">(</span><span class="s">&#39;--name&#39;</span><span class="p">,</span> <span class="n">prompt</span><span class="o">=</span><span class="s">&#39;Your name&#39;</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s">&#39;The person to greet.&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="n">count</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Simple program that greets NAME for a total of COUNT times.&quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">count</span><span class="p">):</span>
+        <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s">&#39;Hello </span><span class="si">%s</span><span class="s">!&#39;</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">hello</span><span class="p">()</span>
+</pre></div>
+
+
+<p>执行结果：</p>
+<div class="highlight"><pre><span class="nv">$ </span>python hello.py --count<span class="o">=</span>3
+Your name: John
+Hello John!
+Hello John!
+Hello John!
+</pre></div>
+
+
+<p>它还会自动生成格式化好的帮助信息:</p>
+<div class="highlight"><pre><span class="nv">$ </span>python hello.py --help
+Usage: hello.py <span class="o">[</span>OPTIONS<span class="o">]</span>
+
+  Simple program that greets NAME <span class="k">for</span> a total of COUNT times.
+
+Options:
+  --count INTEGER  Number of greetings.
+  --name TEXT      The person to greet.
+  --help           Show this message and exit.
+</pre></div>
+
+
+<h2>快速入门</h2>
+<h3>安装</h3>
+<div class="highlight"><pre>pip install Click
+</pre></div>
+
+
+<h3>创建一个命令</h3>
+<p>通过装时器函数click.command()来注册命令</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">click</span>
+
+
+<span class="nd">@click.command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">hello</span><span class="p">():</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">hello</span><span class="p">()</span>
+</pre></div>
+
+
+<p>输出结果：</p>
+<div class="highlight"><pre><span class="nv">$ </span>python hello.py
+Hello World!
+</pre></div>
+
+
+<p>相应的帮助页：</p>
+<div class="highlight"><pre><span class="nv">$ </span>python hello.py --help
+Usage: hello.py <span class="o">[</span>OPTIONS<span class="o">]</span>
+
+Options:
+  --help  Show this message and exit.
+</pre></div>
+
+
+<h3>输出</h3>
+<p>为什么不用print，还要加入一个echo呢。Click尝试用一个兼容Python 2和Python 3相同方式来处理。也防止了一些终端编码不一致出现UnicodeError异常。</p>
+<p>Click 2.0还加入了ANSI colors支持，如果输出结果到文件中还会自动去处ANSI codes。</p>
+<p>要使用ANSI colors我们需要colorama包配合操作：</p>
+<div class="highlight"><pre>pipenv install colorama
+</pre></div>
+
+
+<p>示例：
+    click.echo(click.style("Hello World!", fg='green')) # click.secho('Hello World!', fg='green')</p>
+<h3>嵌套命令</h3>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">click</span>
+
+
+<span class="nd">@click.group</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">cli</span><span class="p">():</span>
+    <span class="k">pass</span>
+
+<span class="nd">@cli.command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">initdb</span><span class="p">():</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s">&#39;Initialized the database&#39;</span><span class="p">)</span>
+
+<span class="nd">@cli.command</span><span class="p">()</span>
+<span class="k">def</span> <span class="nf">dropdb</span><span class="p">():</span>
+    <span class="n">click</span><span class="o">.</span><span class="n">echo</span><span class="p">(</span><span class="s">&#39;Dropped the database&#39;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">cli</span><span class="p">()</span>
+</pre></div>
+
+
+<h3>添加参数</h3>
+<p>使用option()和argument()装饰器增加参数</p>
+<div class="highlight"><pre>@click.command()
+@click.option(&#39;--count&#39;, default=1, help=&#39;number of greetings&#39;)
+@click.argument(&#39;name&#39;)
+def hello(count, name):
+    for x in range(count):
+        click.echo(&#39;Hello %s!&#39; % name)
+What it looks like:
+
+$ python hello.py --help
+Usage: hello.py [OPTIONS] NAME
+
+Options:
+  --count INTEGER  number of greetings
+  --help           Show this message and exit.
+</pre></div>
+
+
+<h3>继承setuptools</h3>
+<p><a href="https://click.palletsprojects.com/en/7.x/setuptools/#setuptools-integration">查看详情</a></p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/click-ming-ling-xing-gong-ju-shen-qi.html&text=Click: 命令行工具神器&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/click-ming-ling-xing-gong-ju-shen-qi.html&t=Click: 命令行工具神器"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/click-ming-ling-xing-gong-ju-shen-qi.html&title=Click: 命令行工具神器" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>

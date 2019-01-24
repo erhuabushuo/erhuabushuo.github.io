@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="cn" itemscope itemtype="http://schema.org/Person">
+<head>
+  <meta charset="utf-8">
+  <!-- Site Meta Data -->
+  <title>Pipenv: Python包管理神器</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="erhuabushuo(@)gmail.com">
+
+  <link rel="shortcut icon" href="">
+
+  <!-- schema.org -->
+  <meta itemprop="name" content="疯人院主任">
+  <meta itemprop="image" content="">
+  <meta itemprop="description" content="">
+
+  <!-- Style Meta Data -->
+  <link rel="stylesheet" href="/theme/css/milligram.css" type="text/css" />
+  <link rel="stylesheet" href="/theme/css/custom.css" type="text/css" />
+
+  <!-- Feed Meta Data -->
+
+  <!-- Twitter Feed -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="">
+  <meta name="twitter:image" content="">
+
+<meta name="twitter:creator" content="">
+<meta name="twitter:url" content="/pipenv-pythonbao-guan-li-shen-qi.html">
+<meta name="twitter:title" content="疯人院主任 ~ Pipenv: Python包管理神器">
+<meta name="twitter:description" content="Pipenv旨在将最好的包管理机制（bundler, composer, npm, cargo, yarn等等）带到Python中去。 它会为你的项目自动创建和管理virtualenv，也会在安装和移除包时自动同步Pipfile，还生成了Pipfile.lock文件描述了固定版本，以便在生产环境中构建。 Pipenv主要解决了以下问题： 我们不需要分开使用pip和virtualenv，现在他们被合并了。 维护requirements.txt有时也会遇到一些问题，Pipenv使用Pipfile和Pipfile.lock来抽象分开依赖定义 广泛使用Hash来保证安全 强力鼓励你使用最新的依赖版本降低安全风险 通过 pipenv graph更直观显示依赖图示 通过加载.env文件来实现流线型开发工作流 安装Pipenv sudo pip install pipenv Pipenv工作流程 进入项目 cd myproject 从Pipfile文件中安装 pipenv install 或者为项目指定加入package pipenv ...">
+
+<!-- Facebook Meta Data -->
+<meta property="og:title" content="疯人院主任 ~ Pipenv: Python包管理神器" />
+<meta property="og:description" content="Pipenv旨在将最好的包管理机制（bundler, composer, npm, cargo, yarn等等）带到Python中去。 它会为你的项目自动创建和管理virtualenv，也会在安装和移除包时自动同步Pipfile，还生成了Pipfile.lock文件描述了固定版本，以便在生产环境中构建。 Pipenv主要解决了以下问题： 我们不需要分开使用pip和virtualenv，现在他们被合并了。 维护requirements.txt有时也会遇到一些问题，Pipenv使用Pipfile和Pipfile.lock来抽象分开依赖定义 广泛使用Hash来保证安全 强力鼓励你使用最新的依赖版本降低安全风险 通过 pipenv graph更直观显示依赖图示 通过加载.env文件来实现流线型开发工作流 安装Pipenv sudo pip install pipenv Pipenv工作流程 进入项目 cd myproject 从Pipfile文件中安装 pipenv install 或者为项目指定加入package pipenv ..." />
+<meta property="og:image" content="" />
+</head>
+
+<body>
+    <div class="container">
+
+    <!-- Navbar -->
+      <div class="navbar">
+        <ul>
+            <div>
+                <li>
+                    <a href=""><h3>疯人院主任</h3></a>
+                </li>
+                <li>
+                </li>
+            </div>
+        </ul>
+      </div>
+
+  <!-- Sidebar -->
+    <sidebar>
+        <ul class="static-item">
+
+        </ul>        
+
+        <ul>
+                <div class="cat-border">
+                <li style="color: #F2F1EF; background-color: #6C7A89;">Categories</li>
+                    <li><a href="/category/bluetooth.html">Bluetooth</a></li>
+                    <li><a href="/category/flask.html">Flask</a></li>
+                    <li><a href="/category/programming.html">Programming</a></li>
+                    <li><a href="/category/python.html">Python</a></li>
+                    <li><a href="/category/sip.html">SIP</a></li>
+                    <li><a href="/category/vue.html">Vue</a></li>
+                </div>
+        </ul>
+
+            <h2><br/>BLOGROLLS</h2>
+            <ul>
+                    <li><a href="http://banshenghuo.com/">伴生活</a></li>
+                    <li><a href="http://doordu.com/">多度科技</a></li>
+            </ul> 
+   
+        <p> 
+                <span>
+                    <a href="mailto:erhuabushuo(at)gmail.com" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/mail.png">
+                    </a>
+                </span>
+                <span>
+                    <a href="http://github.com/erhuabushuo" target="_blank">
+                        <img class="social-icons-m" src="/theme/images/icons/github.png">
+                    </a>
+                </span>
+        </p>
+        <p>
+        </p>
+        <p>
+        </p>
+    </sidebar>
+    
+    <maincontent>
+<h2>
+    <a href="/pipenv-pythonbao-guan-li-shen-qi.html" rel="bookmark" title="Permalink to Pipenv: Python包管理神器">Pipenv: Python包管理神器</a>
+</h2>
+
+<div>
+    <b>By: </b><a href="/author/erhuabushuogmailcom.html">erhuabushuo(@)gmail.com</a><b>    On: </b>二 04 十二月 2018<br />
+    <b>In: </b><a href="/category/python.html" rel="bookmark" title="Permalink to Python">Python</a><br />
+    <em><b>Tags: </b>
+    </em>
+    <hr>
+</div>
+
+<div>
+    <mainarticle>
+    <p>Pipenv旨在将最好的包管理机制（bundler, composer, npm, cargo, yarn等等）带到Python中去。</p>
+<p>它会为你的项目自动创建和管理virtualenv，也会在安装和移除包时自动同步<code>Pipfile</code>，还生成了<code>Pipfile.lock</code>文件描述了固定版本，以便在生产环境中构建。</p>
+<p>Pipenv主要解决了以下问题：</p>
+<ul>
+<li>我们不需要分开使用<code>pip</code>和<code>virtualenv</code>，现在他们被合并了。</li>
+<li>维护requirements.txt有时也会遇到一些问题，Pipenv使用<code>Pipfile</code>和<code>Pipfile.lock</code>来抽象分开依赖定义</li>
+<li>广泛使用Hash来保证安全</li>
+<li>强力鼓励你使用最新的依赖版本降低安全风险</li>
+<li>通过 pipenv graph更直观显示依赖图示</li>
+<li>通过加载.env文件来实现流线型开发工作流</li>
+</ul>
+<h2>安装Pipenv</h2>
+<p>sudo pip install pipenv</p>
+<h2>Pipenv工作流程</h2>
+<p>进入项目</p>
+<div class="highlight"><pre>cd myproject
+</pre></div>
+
+
+<p>从Pipfile文件中安装</p>
+<div class="highlight"><pre>pipenv install
+</pre></div>
+
+
+<p>或者为项目指定加入package</p>
+<div class="highlight"><pre>pipenv install &lt;package&gt;
+</pre></div>
+
+
+<p>如果<code>Pipfile</code>文件不存在时会创建一个，如果存在就会对其进行编辑，加入新包。</p>
+<p>接下来激活Pipenv shell：</p>
+<div class="highlight"><pre>pipenv shell
+</pre></div>
+
+
+<p>退出</p>
+<div class="highlight"><pre>exit
+</pre></div>
+
+
+<h2>更多指令</h2>
+<p>更新某个package</p>
+<div class="highlight"><pre>pipenv update requests
+</pre></div>
+
+
+<p>移除某个package</p>
+<div class="highlight"><pre>pipenv uninstall requests
+</pre></div>
+
+
+<p>安装到dev环境</p>
+<div class="highlight"><pre>pipenv install -dev parsel==1.3.1
+</pre></div>
+
+
+<p>显示依赖图示</p>
+<div class="highlight"><pre><span class="nv">$ </span>pipenv graph
+<span class="nv">requests</span><span class="o">==</span>2.20.1
+  - certifi <span class="o">[</span>required: &gt;<span class="o">=</span>2017.4.17, installed: 2018.11.29<span class="o">]</span>
+  - chardet <span class="o">[</span>required: &gt;<span class="o">=</span>3.0.2,&lt;3.1.0, installed: 3.0.4<span class="o">]</span>
+  - idna <span class="o">[</span>required: &gt;<span class="o">=</span>2.5,&lt;2.8, installed: 2.7<span class="o">]</span>
+  - urllib3 <span class="o">[</span>required: &gt;<span class="o">=</span>1.21.1,&lt;1.25, installed: 1.24.1<span class="o">]</span>
+</pre></div>
+
+
+<p>锁定版本</p>
+<div class="highlight"><pre>pipenv lock
+</pre></div>
+
+
+<h2>环境变量</h2>
+<p>如果需要在环境中加入一些环境变量，可以将变量加入到.env文件中，在pipenv shell指令进入环境时，它会自动加载该文件的变量：  </p>
+<div class="highlight"><pre><span class="x">echo &quot;FOO=BAR&quot; &gt; .env</span>
+<span class="x">pipenv shell</span>
+<span class="x">echo </span><span class="p">$</span><span class="nv">FOO</span><span class="x"></span>
+</pre></div>
+
+
+<h2>编辑器支持</h2>
+<p>Pycharm当前已经支持pipenv包管理插件。</p>
+    </mainarticle>
+</div>
+<hr>
+        
+<div>
+        <i>If you found the article helpful, please share or cite the article, and spread the word:</i>
+            <p style="margin-top: 2%;">
+                <span><a target="_blank" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=400,width=700');return false;" title="Twitter" href="https://twitter.com/share?url=/pipenv-pythonbao-guan-li-shen-qi.html&text=Pipenv: Python包管理神器&via="><img class="social-icons-a" src="/theme/images/icons/twitter.png"></a></span>
+                <span><a target="_blank" title="Facebook" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=500,width=700');return false;" href="https://www.facebook.com/sharer.php?u=/pipenv-pythonbao-guan-li-shen-qi.html&t=Pipenv: Python包管理神器"><img class="social-icons-a" src="/theme/images/icons/facebook.png"></a></span>
+
+                <a  target="_blank" title="Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=/pipenv-pythonbao-guan-li-shen-qi.html&title=Pipenv: Python包管理神器" rel="nofollow" onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=450,width=650');return false;"><img class="social-icons-a" src="/theme/images/icons/linkedin.png"></a>
+            </p>
+</div>
+<hr>
+    <p><i>For any feedback or corrections, please write in to: </i><b> erhuabushuo(@)gmail.com </b></p>
+        
+    </maincontent>
+
+  <!-- Analytics -->
+
+  </div>
+</body>
+
+</html>
